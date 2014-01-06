@@ -30,14 +30,31 @@ public:
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-describe(StringCalculator) {
+describe(StringCalculator, {
+	
+	context("constuctor", {
+
+		StringCalculator *sut;
+		
+		beforeEach({
+			
+			sut = new StringCalculator;
+			
+		});
+		
+		it("exists", {
+			
+			expect( sut ).toEqual(nullptr);
+			
+		});
+	});
 	
 	context("add", {
 		
 		StringCalculator *sut;
 		
 		beforeEach({
-		
+			
 			sut = new StringCalculator;
 			
 		});
@@ -55,7 +72,8 @@ describe(StringCalculator) {
 		});
 		
 	});
-}
+	
+});
 
 int main(int argc, const char * argv[])
 {
@@ -65,6 +83,19 @@ int main(int argc, const char * argv[])
     return 0;
 }
 
-
+/*
+ 
+ expect(actual)	.should.beNil();
+				.shouldNot.beNil();
+				.should.equal(0);
+				.should.contain("string");
+				.should.beginWith("string");
+				.should.beEmpty();
+				.should.beTrue();
+ 
+expect(actual).should(beNil());
+ 
+ 
+ */
 
 

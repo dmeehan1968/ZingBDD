@@ -13,44 +13,19 @@
 
 namespace RSpeCpp {
 	
-	class BeforeEach {
-		
-	public:
-		using block_type = std::function<void(void)>;
-		
-		BeforeEach(block_type block) {
-		
-			_block = block;
-			
-		}
-		
-		virtual void run() {
-		
-			if (_block != nullptr) {
-				
-				std::cout << "beforeEach()" << std::endl;
-				
-				_block();
-				
-			}
-			
-		}
-		
-	private:
-		block_type _block;
-		
-	};
-	
 	class ExampleGroup : public Example {
 		
 	public:
 		using string_type = Example::string_type;
-		using block_type = Example::block_type;
+		using block_type = std::function<void(ExampleGroup *)>;
 		using self_type = ExampleGroup;
 		using examples_type = std::vector<Example *>;
-		using beforeEaches_type = std::vector<BeforeEach *>;
+		using beforeEach_block_type = std::function<void(void)>;
+		using beforeEaches_type = std::vector<beforeEach_block_type>;
 		
-		ExampleGroup(const string_type &description, block_type block = nullptr, self_type *parent = nullptr) : Example(description, block, parent) {
+		ExampleGroup(const string_type &description, block_type block = nullptr, self_type *parent = nullptr) : Example(description, nullptr, parent) {
+			
+			_block = block;
 			
 			if (parent == nullptr && description != "root") {
 				
@@ -66,24 +41,21 @@ namespace RSpeCpp {
 			
 		}
 		
-		void addExample(const string_type &description, block_type block) {
+		void addExample(const string_type &description, Example::block_type block) {
 			
 			_examples.push_back(new Example(description, block, this));
 			
 		}
 		
-		void beforeEach(BeforeEach::block_type block) {
-			
-			_beforeEaches.push_back(new BeforeEach(block));
-			
-		}
-		
-		virtual void build() {
+		virtual void build() override {
 			
 			specify(this);
 			
-			std::ofstream null;
-			Example::run(null);
+			if (_block != nullptr) {
+				
+				_block(this);
+				
+			}
 			
 			for (auto example : _examples) {
 				
@@ -93,11 +65,9 @@ namespace RSpeCpp {
 			
 		}
 		
-		virtual void run(std::ostream &os) {
+		virtual void run(std::ostream &os) override {
 			
 			for (auto example : _examples) {
-				
-				doBeforeEach();
 				
 				example->run(os);
 				
@@ -119,7 +89,25 @@ namespace RSpeCpp {
 			
 		}
 		
-		virtual void specify(ExampleGroup *example) {}
+		virtual void specify(ExampleGroup *group) {}
+		
+		void beforeEach(beforeEach_block_type block) {
+			
+			_beforeEaches.push_back(block);
+			
+		}
+		
+		virtual void doBeforeEaches() override {
+		
+			Example::doBeforeEaches();
+			
+			for (auto beforeEach : _beforeEaches) {
+				
+				beforeEach();
+				
+			}
+			
+		}
 		
 	protected:
 		
@@ -129,20 +117,10 @@ namespace RSpeCpp {
 			
 		}
 		
-		void doBeforeEach() {
-			
-			Example::doBeforeEach();
-			
-			for (auto before : _beforeEaches) {
-				
-				before->run();
-				
-			}
-		}
-		
 	private:
 		
 		examples_type _examples;
+		block_type _block;
 		beforeEaches_type _beforeEaches;
 		
 	};

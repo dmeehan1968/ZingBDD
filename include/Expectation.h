@@ -15,15 +15,13 @@ namespace RSpeCpp {
 	class Expectation {
 		
 	public:
-		Expectation( T actual ) {
-			_actual = actual;
-		}
+		Expectation( const T &actual ) : _actual(actual) {}
 		
 		class ExpectationException : public std::runtime_error {
 			using std::runtime_error::runtime_error;
 		};
 		
-		void toEqual( T expected ) {
+		void toEqual( const T &expected ) {
 			
 			if (_actual != expected) {
 				
@@ -36,10 +34,10 @@ namespace RSpeCpp {
 			}
 			
 		}
-		
+				
 	private:
 		
-		T _actual;
+		const T &_actual;
 	};
 	
 }

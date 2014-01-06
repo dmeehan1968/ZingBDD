@@ -16,7 +16,7 @@ namespace RSpeCpp {
 	public:
 		using self_type = Example;
 		using string_type = std::string;
-		using block_type = std::function<void(Example *)>;
+		using block_type = std::function<void(void)>;
 		
 		Example(const string_type &description, block_type block, self_type *parent) {
 			
@@ -37,13 +37,7 @@ namespace RSpeCpp {
 			
 		}
 		
-		virtual void specify(Example *example) {
-			
-		}
-		
 		virtual void build() {
-			
-			specify(this);
 			
 		}
 		
@@ -51,18 +45,20 @@ namespace RSpeCpp {
 			
 			try {
 				
+				doBeforeEaches();
+				
 				if (_block != nullptr) {
 					
-					_block(this);
+					_block();
 					
 				}
 				
-				os << "OK: " << getDescription() << ": ";
+				os << "OK  : " << getDescription();
 				
 				
 			} catch (std::exception &e) {
 				
-				os << "ERROR: " << getDescription() << ", " << e.what();
+				os << "FAIL: " << getDescription() << ": " << e.what();
 				
 			}
 			
@@ -70,15 +66,11 @@ namespace RSpeCpp {
 			
 		}
 		
-		virtual void addExample(const string_type &description, block_type block) {}
-		
-		virtual void addExampleGroup(const string_type &description, block_type block = nullptr, Example *parent = nullptr) {}
-		
-		virtual void doBeforeEach() {
+		virtual void doBeforeEaches() {
 
 			if (_parent != nullptr) {
 				
-				_parent->doBeforeEach();
+				_parent->doBeforeEaches();
 				
 			}
 			
