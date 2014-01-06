@@ -32,7 +32,7 @@ public:
 
 describe(StringCalculator, {
 	
-	context("constuctor", {
+	context("constructor", {
 
 		StringCalculator *sut;
 		
@@ -44,7 +44,7 @@ describe(StringCalculator, {
 		
 		it("exists", {
 			
-			expect( sut ).toEqual(nullptr);
+			expect( sut ).shouldNot.beNil();
 			
 		});
 	});
@@ -61,13 +61,13 @@ describe(StringCalculator, {
 		
 		it("returns zero for empty string", {
 			
-			expect( sut->add("") ).toEqual( 0 );
+			expect( sut->add("") ).should.equal( 0 );
 			
 		});
 		
 		it("returns one for string with digit one", {
 			
-			expect( sut->add("1") ).toEqual( 1 );
+			expect( sut->add("1") ).should.equal( 1 );
 			
 		});
 		
@@ -93,7 +93,8 @@ int main(int argc, const char * argv[])
 				.should.beEmpty();
 				.should.beTrue();
  
-expect(actual).should(beNil());
+expect(actual).should(beNil);
+ 
  
  
  */

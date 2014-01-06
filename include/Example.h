@@ -77,7 +77,7 @@ namespace RSpeCpp {
 		}
 		
 		template <typename T>
-		Expectation<T> expect( T actual ) {
+		Expectation<T> expect( const T& actual ) {
 			
 			return Expectation<T>( actual );
 			
