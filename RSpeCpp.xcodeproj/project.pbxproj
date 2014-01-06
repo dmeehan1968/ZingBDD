@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A3176F871879E9B70092DC27 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3176F861879E9B70092DC27 /* main.cpp */; };
-		A3176F891879E9B70092DC27 /* RSpeCpp.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3176F881879E9B70092DC27 /* RSpeCpp.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +17,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				A3176F891879E9B70092DC27 /* RSpeCpp.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -26,8 +24,13 @@
 
 /* Begin PBXFileReference section */
 		A3176F831879E9B70092DC27 /* RSpeCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RSpeCpp; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3176F861879E9B70092DC27 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A3176F881879E9B70092DC27 /* RSpeCpp.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = RSpeCpp.1; sourceTree = "<group>"; };
+		A3176F861879E9B70092DC27 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = RSpeCpp/main.cpp; sourceTree = "<group>"; };
+		A3176F92187AD83D0092DC27 /* Expectation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Expectation.h; sourceTree = "<group>"; };
+		A3176F93187AD9590092DC27 /* Example.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
+		A3176F94187AD98E0092DC27 /* ExampleGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleGroup.h; sourceTree = "<group>"; };
+		A3176F95187AD9DA0092DC27 /* RSpeCpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSpeCpp.h; sourceTree = "<group>"; };
+		A3176F96187ADB050092DC27 /* Runner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runner.h; sourceTree = "<group>"; };
+		A3176F97187ADB290092DC27 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +47,10 @@
 		A3176F7A1879E9B70092DC27 = {
 			isa = PBXGroup;
 			children = (
-				A3176F851879E9B70092DC27 /* RSpeCpp */,
+				A3176F91187AD7EA0092DC27 /* specs */,
+				A3176F90187AD7D50092DC27 /* include */,
+				A3176F8F187AD7BC0092DC27 /* src */,
+				A3176F861879E9B70092DC27 /* main.cpp */,
 				A3176F841879E9B70092DC27 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,13 +63,31 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A3176F851879E9B70092DC27 /* RSpeCpp */ = {
+		A3176F8F187AD7BC0092DC27 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				A3176F861879E9B70092DC27 /* main.cpp */,
-				A3176F881879E9B70092DC27 /* RSpeCpp.1 */,
 			);
-			path = RSpeCpp;
+			path = src;
+			sourceTree = "<group>";
+		};
+		A3176F90187AD7D50092DC27 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				A3176F92187AD83D0092DC27 /* Expectation.h */,
+				A3176F93187AD9590092DC27 /* Example.h */,
+				A3176F94187AD98E0092DC27 /* ExampleGroup.h */,
+				A3176F97187ADB290092DC27 /* Macros.h */,
+				A3176F96187ADB050092DC27 /* Runner.h */,
+				A3176F95187AD9DA0092DC27 /* RSpeCpp.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		A3176F91187AD7EA0092DC27 /* specs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = specs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
