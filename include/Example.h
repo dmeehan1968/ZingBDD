@@ -53,12 +53,12 @@ namespace RSpeCpp {
 					
 				}
 				
-				os << "OK  : " << getDescription();
+				os << "  OK : " << getDescription();
 				
 				
 			} catch (std::exception &e) {
 				
-				os << "FAIL: " << getDescription() << ": " << e.what();
+				os << "FAIL : " << getDescription() << ": " << e.what();
 				
 			}
 			

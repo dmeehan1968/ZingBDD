@@ -59,13 +59,13 @@ describe(StringCalculator, {
 			
 		});
 		
-		it("returns zero for empty string", {
+		it("an empty string", {
 			
 			expect( sut->add("") ).should.equal( 0 );
 			
 		});
 		
-		it("returns one for string with digit one", {
+		it("a string with the digit one", {
 			
 			expect( sut->add("1") ).should.equal( 1 );
 			

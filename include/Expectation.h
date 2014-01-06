@@ -11,41 +11,29 @@
 
 namespace RSpeCpp {
 		
-	
-	template <typename T, bool logic>
-	class BeNilMatcher {
-		
-	public:
-		BeNilMatcher( const T& actual ) : _actual(actual) {}
-		
-		void operator() () {
-		
-			if ((_actual != nullptr) == logic) {
-				
-				throw std::runtime_error("should be nil");
-				
-			}
-		}
-		
-	private:
-		const T& _actual;
-	};
-	
-	template <typename T, bool logic>
+	template <typename T, bool logical>
 	class EqualMatcher {
 		
 	public:
-		EqualMatcher(const T& actual) : _actual(actual) {}
+		EqualMatcher( const T& actual ) : _actual(actual) { }
 		
-		void operator() ( const T &expected ) {
+		void equal( const T& expected ) {
 			
-			if ((_actual != expected) == logic) {
+			if ((_actual != expected) == logical) {
 				
-				std::ostringstream ss;
-				ss << "expected " << expected << ", got " << _actual;
+				throw std::runtime_error(error(expected));
 				
-				throw std::runtime_error(ss.str());
 			}
+		}
+		
+		std::string error(const T& expected) {
+			std::ostringstream ss;
+			if (logical) {
+				ss << "expected " << expected << ", got " << _actual;
+			} else {
+				ss << "should not be equal to " << expected;
+			}
+			return ss.str();
 		}
 		
 	private:
@@ -53,14 +41,38 @@ namespace RSpeCpp {
 		
 	};
 	
-	template <typename T, bool logic>
-	class Verifier {
-	
-	public:
-		Verifier( const T &actual ) : beNil(actual), equal(actual) {}
+	template <typename T, bool logical>
+	class BeNilMatcher {
 		
-		BeNilMatcher<T, logic> beNil;
-		EqualMatcher<T, logic> equal;
+	public:
+		BeNilMatcher( const T& actual ) : _actual(&actual) {}
+		
+		void beNil() {
+			
+			if ((_actual != nullptr) == logical) {
+				
+				throw std::runtime_error(error());
+			}
+			
+		}
+		
+		std::string error() {
+			if (logical) {
+				return "expected Nil";
+			} else {
+				return "expected not to be Nil";
+			}
+		}
+		
+	private:
+		const T* _actual;
+	};
+	
+	template <typename T, bool logical, template <typename, bool> class... Matchers>
+	class Verifier : public Matchers<T, logical>... {
+		
+	public:
+		Verifier( const T& actual ) : Matchers<T, logical>(actual)... {}
 		
 	};
 	
@@ -68,17 +80,29 @@ namespace RSpeCpp {
 	class Expectation {
 		
 	public:
+		template <bool logical>
+		using verifier_type = Verifier<T, logical, EqualMatcher>;
+		
 		Expectation( const T &actual ) : should(actual), shouldNot(actual) {}
-		
-		class ExpectationException : public std::runtime_error {
-			using std::runtime_error::runtime_error;
-		};
-		
-		Verifier<T, true> should;
-		Verifier<T, false> shouldNot;
+
+		verifier_type<true> should;
+		verifier_type<false> shouldNot;
 		
 	};
 	
+	template <typename T>
+	class Expectation<T *> {
+	
+	public:
+		template <bool logical>
+		using verifier_type = Verifier<T, logical, EqualMatcher, BeNilMatcher>;
+		
+		Expectation( const T *actual ) : should(*actual), shouldNot(*actual) {}
+		
+		verifier_type<true> should;
+		verifier_type<false> shouldNot;
+		
+	};
 }
 
 #endif
