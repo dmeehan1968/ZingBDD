@@ -31,6 +31,8 @@
 		A3176F95187AD9DA0092DC27 /* RSpeCpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSpeCpp.h; sourceTree = "<group>"; };
 		A3176F96187ADB050092DC27 /* Runner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runner.h; sourceTree = "<group>"; };
 		A3176F97187ADB290092DC27 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		A3176F9C187B353B0092DC27 /* StringCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringCalculator.h; sourceTree = "<group>"; };
+		A3176F9D187B35600092DC27 /* StringCalculatorSpec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringCalculatorSpec.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +49,7 @@
 		A3176F7A1879E9B70092DC27 = {
 			isa = PBXGroup;
 			children = (
-				A3176F91187AD7EA0092DC27 /* specs */,
+				A3176F98187B34170092DC27 /* demo */,
 				A3176F90187AD7D50092DC27 /* include */,
 				A3176F8F187AD7BC0092DC27 /* src */,
 				A3176F861879E9B70092DC27 /* main.cpp */,
@@ -83,9 +85,35 @@
 			path = include;
 			sourceTree = "<group>";
 		};
-		A3176F91187AD7EA0092DC27 /* specs */ = {
+		A3176F98187B34170092DC27 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				A3176F99187B34BA0092DC27 /* StringCalculator */,
+			);
+			path = demo;
+			sourceTree = "<group>";
+		};
+		A3176F99187B34BA0092DC27 /* StringCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				A3176F9B187B35170092DC27 /* specs */,
+				A3176F9A187B34D50092DC27 /* src */,
+			);
+			path = StringCalculator;
+			sourceTree = "<group>";
+		};
+		A3176F9A187B34D50092DC27 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A3176F9C187B353B0092DC27 /* StringCalculator.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		A3176F9B187B35170092DC27 /* specs */ = {
+			isa = PBXGroup;
+			children = (
+				A3176F9D187B35600092DC27 /* StringCalculatorSpec.h */,
 			);
 			path = specs;
 			sourceTree = "<group>";
