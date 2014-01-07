@@ -13,21 +13,6 @@
 
 namespace RSpeCpp {
 	
-	class BeforeEach {
-		
-	public:
-		using block_type = std::function<void(void)>;
-		
-		BeforeEach(block_type block) : _block(block) {}
-		
-		void operator() () {
-			_block();
-		}
-		
-	private:
-		block_type _block;
-	};
-	
 	class ExampleGroup : public Example {
 		
 	public:

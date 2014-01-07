@@ -34,6 +34,7 @@
 		A3176F9C187B353B0092DC27 /* StringCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringCalculator.h; sourceTree = "<group>"; };
 		A3176F9D187B35600092DC27 /* StringCalculatorSpec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringCalculatorSpec.h; sourceTree = "<group>"; };
 		A3176F9E187C09E70092DC27 /* Specification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Specification.h; sourceTree = "<group>"; };
+		A3176F9F187C24C70092DC27 /* BeforeEach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeforeEach.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 				A3176F96187ADB050092DC27 /* Runner.h */,
 				A3176F9E187C09E70092DC27 /* Specification.h */,
 				A3176F95187AD9DA0092DC27 /* RSpeCpp.h */,
+				A3176F9F187C24C70092DC27 /* BeforeEach.h */,
 			);
 			path = include;
 			sourceTree = "<group>";

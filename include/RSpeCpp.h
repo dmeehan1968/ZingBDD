@@ -9,6 +9,7 @@
 #ifndef RSpeCpp_RSpeCpp_h
 #define RSpeCpp_RSpeCpp_h
 
+#include "BeforeEach.h"
 #include "Expectation.h"
 #include "Example.h"
 #include "ExampleGroup.h"
