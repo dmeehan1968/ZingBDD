@@ -37,6 +37,8 @@
 		A3176F9F187C24C70092DC27 /* BeforeEach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeforeEach.h; sourceTree = "<group>"; };
 		A3176FA0187C28EF0092DC27 /* Reporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
 		A3176FA1187C29910092DC27 /* StreamReporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamReporter.h; sourceTree = "<group>"; };
+		A3CE2F9F187C702F00195E3C /* CalculatorParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorParser.h; sourceTree = "<group>"; };
+		A3CE2FA0187C721F00195E3C /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				A3176F9C187B353B0092DC27 /* StringCalculator.h */,
+				A3CE2F9F187C702F00195E3C /* CalculatorParser.h */,
+				A3CE2FA0187C721F00195E3C /* Scanner.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -285,6 +289,7 @@
 				A3176F8E1879E9B70092DC27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -30,7 +30,7 @@ namespace RSpeCpp {
 			
 			Reporter::fail(description, what);
 			
-			_os << "FAIL:" << description << ", " << what << std::endl;
+			_os << "FAIL: " << description << ", " << what << std::endl;
 			
 		}
 		
