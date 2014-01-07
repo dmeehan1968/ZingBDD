@@ -15,7 +15,6 @@ namespace RSpeCpp {
 		
 	public:
 		using examples_type = std::vector<Example *>;
-		using ostream_type = std::ostream;
 		
 		static Runner &getInstance() {
 			
@@ -37,13 +36,15 @@ namespace RSpeCpp {
 			
 		}
 		
-		void run(ostream_type &os) {
+		void run(Reporter &reporter) {
 			
 			for ( auto example : _examples ) {
 				
-				example->run(os);
+				example->run(reporter);
 				
 			}
+			
+			reporter.summary();
 		}
 		
 	private:

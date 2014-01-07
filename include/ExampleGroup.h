@@ -16,41 +16,41 @@ namespace RSpeCpp {
 	class ExampleGroup : public Example {
 		
 	public:
-		using block_type = std::function<void(ostream_type &, ExampleGroup &)>;
+		using block_type = std::function<void(Reporter &, ExampleGroup &)>;
 		using beforeEaches_type = std::vector<BeforeEach>;
 		
 		ExampleGroup(const string_type &description) : Example(description), _block(nullptr) {}
 
-		virtual void run(ostream_type &os) {
+		virtual void run(Reporter &reporter) override {
 			
-			run(os, *this);
+			run(reporter, *this);
 			
 		}
 
-		virtual void run(ostream_type &os, ExampleGroup &group) {
+		virtual void run(Reporter &reporter, ExampleGroup &group) {
 
 			if (_block != nullptr) {
 				
-				_block(os, group);
+				_block(reporter, group);
 				
 			}
 		}
 		
-		void exampleGroup(const string_type &description, ostream_type &os, block_type block) {
+		void exampleGroup(const string_type &description, Reporter &reporter, block_type block) {
 			
 			ExampleGroup group(description, *this, block);
 			
-			group.run(os);
+			group.run(reporter);
 			
 		}
 		
-		void example(const string_type &description, ostream_type &os, Example::block_type block) {
+		void example(const string_type &description, Reporter &reporter, Example::block_type block) {
 			
 			Example example(description, *this, block);
 			
 			doBeforeEach();
 			
-			example.run(os);
+			example.run(reporter);
 			
 			doAfterEach();
 			

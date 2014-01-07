@@ -15,14 +15,13 @@ namespace RSpeCpp {
 		
 	public:
 		using string_type = std::string;
-		using ostream_type = std::ostream;
 		using block_type = std::function<void(void)>;
 		
 		Example(const string_type &description, Example &parent) : _description(description), _parent(&parent), _block(nullptr) {}
 	
 		Example(const string_type &description, Example &parent, block_type block) : _description(description), _parent(&parent), _block(block) {}
 		
-		virtual void run(ostream_type &os) {
+		virtual void run(Reporter &reporter) {
 			
 			try {
 				
@@ -32,12 +31,12 @@ namespace RSpeCpp {
 					
 				}
 				
-				os << "  OK: " << description() << std::endl;
+				reporter.pass(description());
 				
 			} catch (std::exception &e) {
-				
-				os << "FAIL: " << description() << ", " << e.what() << std::endl;
-				
+
+				reporter.fail(description(), e.what());
+
 			}
 			
 		}

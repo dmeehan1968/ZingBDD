@@ -17,15 +17,15 @@ namespace RSpeCpp {
 #define describe(group, ...)												\
 	class CLASS(group) : public RSpeCpp::Specification {					\
 	using RSpeCpp::Specification::Specification;							\
-	virtual void run(ostream_type &os, ExampleGroup &__group__) override __VA_ARGS__		\
+	virtual void run(RSpeCpp::Reporter &reporter, RSpeCpp::ExampleGroup &__group__) override __VA_ARGS__		\
 	};																		\
 	static CLASS(group) INSTANCE(group)(#group);							\
 	
 #define context(x, ...)														\
-	__group__.exampleGroup((x), os, [&](ostream_type &os, ExampleGroup &__group__) __VA_ARGS__)
+	__group__.exampleGroup((x), reporter, [&](RSpeCpp::Reporter &reporter, RSpeCpp::ExampleGroup &__group__) __VA_ARGS__)
 	
 #define it(x, ...)															\
-	__group__.example((x), os, [&] __VA_ARGS__)
+	__group__.example((x), reporter, [&] __VA_ARGS__)
 	
 }
 

@@ -20,13 +20,13 @@ public:
 
 	using RSpeCpp::Specification::Specification;
 	
-	virtual void run(ostream_type &os, ExampleGroup &__group__) override {
+	virtual void run(Reporter &reporter, ExampleGroup &__group__) override {
 		
-		__group__.exampleGroup("constructor", os, [&](ostream_type &os, ExampleGroup &__group__) {
+		__group__.exampleGroup("constructor", reporter, [&](Reporter &reporter, ExampleGroup &__group__) {
 			
 			StringCalculator *sut = nullptr;
 			
-			__group__.example("exists", os, [&]{
+			__group__.example("exists", reporter, [&]{
 				
 				expect( sut ).shouldNot.beNil();
 				
@@ -104,4 +104,26 @@ describe(StringCalculator, {
 	
 });
 
+/*
+ 
+ <?xml version="1.0"?>
+ <specs>
+	<group>
+		<description>StringCalculator</description>
+		<group>
+			<description>constructor</description>
+			<example>
+				<description>exists</description>
+				<result>
+					<pass />
+				</result>
+			</example>
+			<example>
+				<description>
+	
+ 
+ 
+ 
+ 
+ */
 #endif
