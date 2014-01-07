@@ -16,22 +16,29 @@
 describe(StringCalculator, {
     
     using StringCalculator::StringCalculator;
-    
+
+    it("is default constructible", {
+        
+        expect( std::is_default_constructible<StringCalculator>::value ).should.beTrue();
+        
+    });
+
     context("constructor", {
         
-        StringCalculator *sut;
+        std::shared_ptr<StringCalculator> sut;
         
         beforeEach({
             
-            sut = new StringCalculator;
+            sut = std::make_shared<StringCalculator>();
             
         });
         
         it("exists", {
             
-            expect( sut ).shouldNot.beNil();
+            expect( sut.get() ).shouldNot.beNil();
             
         });
+        
     });
     
     context("add", {
@@ -40,7 +47,7 @@ describe(StringCalculator, {
         
         beforeEach({
             
-            sut = std::shared_ptr<StringCalculator>(new StringCalculator);
+            sut = std::make_shared<StringCalculator>();
             
         });
         
