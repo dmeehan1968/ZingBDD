@@ -74,9 +74,9 @@ namespace RSpeCpp {
     public:
         
         RaiseMatcher( const T& actual ) : _actual(actual) {}
-
+        
         void raise(std::string what = "") {
-
+            
             try {
                 
                 _actual();
@@ -96,6 +96,47 @@ namespace RSpeCpp {
             
             throw std::runtime_error("exception was not received");
             
+        }
+        
+    private:
+        
+        const T& _actual;
+        
+    };
+	
+    template <typename T, bool logical>
+    class BooleanMatcher {
+        
+    public:
+        
+        BooleanMatcher( const T& actual ) : _actual(actual) {}
+        
+        void beTrue() {
+            
+            if ((_actual != true) == logical) {
+                
+                throw std::runtime_error(error());
+                
+            }
+            
+        }
+        
+        void beFalse() {
+            
+            if ((_actual != false) == logical) {
+                
+                throw std::runtime_error("expected false");
+                
+            }
+            
+        }
+        
+        std::string error() {
+            if (logical) {
+                return "expected true";
+            } else {
+                return "expected false";
+            }
         }
         
     private:
@@ -139,6 +180,22 @@ namespace RSpeCpp {
 		verifier_type<false> shouldNot;
 		
 	};
+    
+    template <>
+    class Expectation<bool> {
+      
+    public:
+        using T = bool;
+        
+		template <bool logical>
+		using verifier_type = Verifier<T, logical, BooleanMatcher>;
+		
+		Expectation( const T &actual ) : should(actual), shouldNot(actual) {}
+		
+		verifier_type<true> should;
+		verifier_type<false> shouldNot;
+        
+    };
     
     template <>
     class Expectation<std::function<void(void)>> {

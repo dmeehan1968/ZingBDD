@@ -104,7 +104,6 @@ describe(StringCalculator, {
                     
                 } ) ).should.raise("Expected number");
                 
-                
             });
 
             it("consecutive same delimiters throws", {
@@ -125,13 +124,41 @@ describe(StringCalculator, {
            
                 expect( theBlock( {
                     
-                    sut->add("1");
+                    sut->add("1$");
                     
                 } ) ).should.raise("Expected delimiter");
                 
             });
         });
-        
+
+        context("boolean matchers", {
+			
+            it("true", {
+                
+                expect( true ).should.beTrue();
+                
+            });
+            
+            it("not true", {
+                
+                expect( true ).shouldNot.beFalse();
+                
+            });
+            
+            it("false", {
+                
+                expect( false ).should.beFalse();
+                
+            });
+            
+            it("not false", {
+                
+                expect( false ).shouldNot.beTrue();
+                
+            });
+            
+		});
+
     });
     
 });
