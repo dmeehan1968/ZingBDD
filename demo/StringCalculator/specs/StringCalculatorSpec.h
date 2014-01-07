@@ -95,6 +95,18 @@ describe(StringCalculator, {
                 expect( sut->add("1\n2,3") ).should.equal( 6 );
                 
             });
+            
+            it("consecutive single character delimiters throws", {
+              
+                try {
+                    sut->add("1,\n");
+                } catch (std::exception &e) {
+                    return;
+                }
+                
+                expect( true ).should.equal( false );
+                
+            });
         });
 
         

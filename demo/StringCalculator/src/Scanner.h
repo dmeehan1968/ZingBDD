@@ -27,21 +27,37 @@ namespace StringCalculator {
         
         Scanner(const input_type &input) : _input(input), _iterator(_input.begin()) {}
         
+        bool scan(valueset_type const &valueset, value_type &value) {
+
+            if (valueset.find(*_iterator) != valueset.end()) {
+                
+                value = *_iterator;
+                
+                _iterator++;
+                
+                return true;
+                
+            }
+            
+            return false;
+            
+        }
+        
         bool scan(valueset_type const &valueset, output_type * const output) {
             
             iterator_type const start = _iterator;
             
             while ( ! atEnd() ) {
+            
+                value_type value;
                 
-                if (valueset.find(*_iterator) != valueset.end()) {
+                if (scan(valueset, value)) {
                     
                     if (output != nullptr) {
                         
-                        output->push_back(*_iterator);
+                        output->push_back(value);
                         
                     }
-                    
-                    _iterator++;
                     
                 } else {
                     

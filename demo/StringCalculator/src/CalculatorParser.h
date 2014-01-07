@@ -54,9 +54,13 @@ namespace StringCalculator {
 
                     if ( ! atEnd() && ! parseDelimiters() ) {
                         
-                        throw std::runtime_error("Invalid input");
+                        throw std::runtime_error("Expected delimiter");
                         
                     }
+                    
+                } else {
+                    
+                    throw std::runtime_error("Expected number");
                     
                 }
             }
@@ -90,13 +94,9 @@ namespace StringCalculator {
         
         bool parseDelimiters() {
             
-            if (_pScanner->scan(_singleCharacterDelimiters, nullptr)) {
-                
-                return true;
-                
-            }
+            string_type::value_type value;
             
-            return false;
+            return _pScanner->scan(_singleCharacterDelimiters, value);
             
         }
         
