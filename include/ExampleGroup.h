@@ -13,115 +13,91 @@
 
 namespace RSpeCpp {
 	
+	class BeforeEach {
+		
+	public:
+		using block_type = std::function<void(void)>;
+		
+		BeforeEach(block_type block) : _block(block) {}
+		
+		void operator() () {
+			_block();
+		}
+		
+	private:
+		block_type _block;
+	};
+	
 	class ExampleGroup : public Example {
 		
 	public:
-		using string_type = Example::string_type;
-		using block_type = std::function<void(ExampleGroup *)>;
-		using self_type = ExampleGroup;
-		using examples_type = std::vector<Example *>;
-		using beforeEach_block_type = std::function<void(void)>;
-		using beforeEaches_type = std::vector<beforeEach_block_type>;
+		using block_type = std::function<void(ostream_type &, ExampleGroup &)>;
+		using beforeEaches_type = std::vector<BeforeEach>;
 		
-		ExampleGroup(const string_type &description, block_type block = nullptr, self_type *parent = nullptr) : Example(description, nullptr, parent) {
+		ExampleGroup(const string_type &description) : Example(description), _block(nullptr) {}
+
+		virtual void run(ostream_type &os) {
 			
-			_block = block;
-			
-			if (parent == nullptr && description != "root") {
-				
-				getInstance().addExampleGroup(*this);
-				
-			}
+			run(os, *this);
 			
 		}
-		
-		void addExampleGroup(const string_type &description, block_type block) {
-			
-			_examples.push_back(new ExampleGroup(description, block, this));
-			
-		}
-		
-		void addExample(const string_type &description, Example::block_type block) {
-			
-			_examples.push_back(new Example(description, block, this));
-			
-		}
-		
-		virtual void build() override {
-			
-			specify(this);
-			
+
+		virtual void run(ostream_type &os, ExampleGroup &group) {
+
 			if (_block != nullptr) {
 				
-				_block(this);
+				_block(os, group);
 				
 			}
+		}
+		
+		void exampleGroup(const string_type &description, ostream_type &os, block_type block) {
 			
-			for (auto example : _examples) {
-				
-				example->build();
-				
-			}
+			ExampleGroup group(description, *this, block);
+			
+			group.run(os);
 			
 		}
 		
-		virtual void run(std::ostream &os) override {
+		void example(const string_type &description, ostream_type &os, Example::block_type block) {
 			
-			for (auto example : _examples) {
-				
-				example->run(os);
-				
-			}
+			Example example(description, *this, block);
 			
-		}
-		
-		static self_type &getInstance() {
+			doBeforeEach();
 			
-			static self_type *_instance = nullptr;
+			example.run(os);
 			
-			if (_instance == nullptr) {
-				
-				_instance = new self_type("root", nullptr, nullptr);
-				
-			}
-			
-			return *_instance;
+			doAfterEach();
 			
 		}
 		
-		virtual void specify(ExampleGroup *group) {}
-		
-		void beforeEach(beforeEach_block_type block) {
+		void beforeEach(BeforeEach::block_type block) {
 			
-			_beforeEaches.push_back(block);
+			_beforeEach.emplace_back(BeforeEach(block));
 			
 		}
-		
-		virtual void doBeforeEaches() override {
-		
-			Example::doBeforeEaches();
 			
-			for (auto beforeEach : _beforeEaches) {
-				
-				beforeEach();
-				
-			}
-			
-		}
-		
 	protected:
 		
-		void addExampleGroup(self_type &group) {
+		ExampleGroup(const string_type &description, ExampleGroup &parent, block_type block) : Example(description, parent), _block(block) {}
+		
+		void doBeforeEach() {
 
-			_examples.push_back(&group);
+			for ( auto before : _beforeEach ) {
+				
+				before();
+				
+			}
+		}
+		
+		void doAfterEach() {
 			
 		}
 		
 	private:
 		
-		examples_type _examples;
 		block_type _block;
-		beforeEaches_type _beforeEaches;
+		beforeEaches_type _beforeEach;
 		
 	};
 	

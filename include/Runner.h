@@ -14,13 +14,44 @@ namespace RSpeCpp {
 	class Runner {
 		
 	public:
-		void run(std::ostream &os) {
+		using examples_type = std::vector<Example *>;
+		using ostream_type = std::ostream;
+		
+		static Runner &getInstance() {
 			
-			ExampleGroup &root = ExampleGroup::getInstance();
-			root.build();
-			root.run(os);
+			static Runner *_instance = nullptr;
+			
+			if (_instance == nullptr) {
+				
+				_instance = new Runner;
+				
+			}
+			
+			return *_instance;
 			
 		}
+		
+		void add(Example &example) {
+			
+			_examples.push_back(&example);
+			
+		}
+		
+		void run(ostream_type &os) {
+			
+			for ( auto example : _examples ) {
+				
+				example->run(os);
+				
+			}
+		}
+		
+	private:
+		
+		Runner() {}
+		
+		examples_type _examples;
+		
 	};
 	
 }

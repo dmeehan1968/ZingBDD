@@ -14,38 +14,17 @@ namespace RSpeCpp {
 	class Example {
 		
 	public:
-		using self_type = Example;
 		using string_type = std::string;
+		using ostream_type = std::ostream;
 		using block_type = std::function<void(void)>;
 		
-		Example(const string_type &description, block_type block, self_type *parent) {
-			
-			_description = description;
-			_block = block;
-			_parent = parent;
-			
-		}
+		Example(const string_type &description, Example &parent) : _description(description), _parent(&parent), _block(nullptr) {}
+	
+		Example(const string_type &description, Example &parent, block_type block) : _description(description), _parent(&parent), _block(block) {}
 		
-		string_type getDescription() {
-			
-			if (_parent != nullptr) {
-				
-				return _parent->getDescription() + " : " + _description;
-				
-			}
-			return _description;
-			
-		}
-		
-		virtual void build() {
-			
-		}
-		
-		virtual void run(std::ostream &os) {
+		virtual void run(ostream_type &os) {
 			
 			try {
-				
-				doBeforeEaches();
 				
 				if (_block != nullptr) {
 					
@@ -53,44 +32,63 @@ namespace RSpeCpp {
 					
 				}
 				
-				os << "  OK : " << getDescription();
-				
+				os << "  OK: " << description() << std::endl;
 				
 			} catch (std::exception &e) {
 				
-				os << "FAIL : " << getDescription() << ": " << e.what();
+				os << "FAIL: " << description() << ", " << e.what() << std::endl;
 				
 			}
-			
-			os << std::endl;
 			
 		}
 		
-		virtual void doBeforeEaches() {
-
+		string_type description() {
+			
 			if (_parent != nullptr) {
 				
-				_parent->doBeforeEaches();
+				string_type desc = _parent->description();
+				
+				if (_description.size() > 0) {
+					
+					if (desc.size()) {
+						
+						desc += " : ";
+						
+					}
+					
+					desc += _description;
+					
+				}
+				
+				return desc;
 				
 			}
+
+			return _description;
 			
 		}
 		
 		template <typename T>
-		Expectation<T> expect( const T& actual ) {
+		Expectation<T> expect( const T &actual ) {
 			
-			return Expectation<T>( actual );
+			return Expectation<T>(actual);
 			
 		}
+		
+	protected:
+		
+		Example(const string_type &description) : _description(description), _parent(nullptr), _block(nullptr) {}
+		
+		Example() : _parent(nullptr), _block(nullptr) {}
 		
 	private:
 		
 		string_type _description;
+		Example *_parent;
 		block_type _block;
-		self_type *_parent;
 		
 	};
-
+	
 }
 
 #endif

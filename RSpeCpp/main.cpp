@@ -14,7 +14,8 @@
 
 int main(int argc, const char * argv[])
 {
-	RSpeCpp::Runner().run(std::cout);
+	RSpeCpp::Runner::getInstance().run(std::cout);
+	
     return 0;
 }
 

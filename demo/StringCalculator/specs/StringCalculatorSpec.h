@@ -13,11 +13,39 @@
 
 #include "StringCalculator.h"
 
+/*
+class StringCalculatorSpec : public RSpeCpp::Specification {
+
+public:
+
+	using RSpeCpp::Specification::Specification;
+	
+	virtual void run(ostream_type &os, ExampleGroup &__group__) override {
+		
+		__group__.exampleGroup("constructor", os, [&](ostream_type &os, ExampleGroup &__group__) {
+			
+			StringCalculator *sut = nullptr;
+			
+			__group__.example("exists", os, [&]{
+				
+				expect( sut ).shouldNot.beNil();
+				
+			});
+		});
+		
+	}
+	
+};
+static StringCalculatorSpec StringCalculatorInstance("StringCalculator");
+*/
+
+
+
 describe(StringCalculator, {
 	
 	context("constructor", {
 		
-		StringCalculator *sut = nullptr;
+		StringCalculator *sut;
 		
 		beforeEach({
 			
@@ -75,6 +103,5 @@ describe(StringCalculator, {
 	});
 	
 });
-
 
 #endif

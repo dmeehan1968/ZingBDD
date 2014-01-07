@@ -13,6 +13,7 @@
 #include "Example.h"
 #include "ExampleGroup.h"
 #include "Runner.h"
+#include "Specification.h"
 #include "Macros.h"
 
 #endif
