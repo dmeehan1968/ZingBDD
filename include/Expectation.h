@@ -67,6 +67,42 @@ namespace RSpeCpp {
 	private:
 		const T* _actual;
 	};
+    
+    template <typename T, bool logical>
+    class RaiseMatcher {
+        
+    public:
+        
+        RaiseMatcher( const T& actual ) : _actual(actual) {}
+
+        void raise(std::string what = "") {
+
+            try {
+                
+                _actual();
+                
+            } catch (std::exception &e) {
+                
+                if (what.size() == 0 || e.what() == what) {
+                    return;
+                }
+                
+                std::ostringstream os;
+                
+                os << "Expected '" << what << "', got '" << e.what() << "'";
+                throw std::runtime_error(os.str());
+                
+            }
+            
+            throw std::runtime_error("exception was not received");
+            
+        }
+        
+    private:
+        
+        const T& _actual;
+        
+    };
 	
 	template <typename T, bool logical, template <typename, bool> class... Matchers>
 	class Verifier : public Matchers<T, logical>... {
@@ -103,6 +139,22 @@ namespace RSpeCpp {
 		verifier_type<false> shouldNot;
 		
 	};
+    
+    template <>
+    class Expectation<std::function<void(void)>> {
+      
+    public:
+        using T = std::function<void(void)>;
+        
+		template <bool logical>
+		using verifier_type = Verifier<T, logical, RaiseMatcher>;
+		
+		Expectation( const T &actual ) : should(actual), shouldNot(actual) {}
+		
+		verifier_type<true> should;
+		verifier_type<false> shouldNot;
+        
+    };
 }
 
 #endif

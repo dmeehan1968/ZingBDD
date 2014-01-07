@@ -51,7 +51,7 @@ namespace RSpeCpp {
 					
 					if (desc.size()) {
 						
-						desc += " : ";
+						desc += " > ";
 						
 					}
 					
@@ -73,7 +73,7 @@ namespace RSpeCpp {
 			return Expectation<T>(actual);
 			
 		}
-		
+        
 	protected:
 		
 		Example(const string_type &description) : _description(description), _parent(nullptr), _block(nullptr) {}

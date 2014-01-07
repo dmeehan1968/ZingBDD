@@ -22,7 +22,7 @@ namespace RSpeCpp {
 			
 			Reporter::pass(description);
 			
-			_os << "  OK: " << description << std::endl;
+			_os << "  OK: " << description << "." << std::endl;
 			
 		}
 		
@@ -30,21 +30,21 @@ namespace RSpeCpp {
 			
 			Reporter::fail(description, what);
 			
-			_os << "FAIL: " << description << ", " << what << std::endl;
+			_os << "FAIL: " << description << ".\n      ERROR >> " << what << std::endl;
 			
 		}
 		
 		virtual void summary() override {
 			
-			_os << std::endl << "Summary" << std::endl << "==============================" << std::endl;
-			
+            _os << "-----" << std::endl;
+            
 			if (failed() > 0) {
 				
 				_os << "Failed: " << failed() << " of " << total() << " (" << passed() << " passed)" << std::endl << std::endl;
 
 				for (auto failure : failures()) {
 					
-					_os << failure.description() << ", " << failure.what() << std::endl;
+					_os << failure.description() << ".\n      << ERROR >> " << failure.what() << std::endl << std::endl;
 					
 				}
 				
@@ -54,7 +54,7 @@ namespace RSpeCpp {
 				
 			}
 			
-			_os << std::endl << std::endl;
+			_os << std::endl;
 			
 		}
 	private:

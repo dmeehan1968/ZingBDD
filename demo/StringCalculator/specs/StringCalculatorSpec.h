@@ -96,19 +96,41 @@ describe(StringCalculator, {
                 
             });
             
-            it("consecutive single character delimiters throws", {
-              
-                try {
-                    sut->add("1,\n");
-                } catch (std::exception &e) {
-                    return;
-                }
+            it("consecutive different delimiters throws", {
                 
-                expect( true ).should.equal( false );
+                expect( theBlock( {
+                    
+                    sut->add("1,\n");
+                    
+                } ) ).should.raise("Expected number");
+                
+                
+            });
+
+            it("consecutive same delimiters throws", {
+                
+                expect( theBlock( {
+                
+                    sut->add("1,,");
+                    
+                } ) ).should.raise("Expected number");
+                
+            });
+
+        });
+
+        context("invalid delimiter", {
+            
+            it("should throw", {
+           
+                expect( theBlock( {
+                    
+                    sut->add("1");
+                    
+                } ) ).should.raise("Expected delimiter");
                 
             });
         });
-
         
     });
     
