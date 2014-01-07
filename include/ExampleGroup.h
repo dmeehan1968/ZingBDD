@@ -112,7 +112,7 @@ namespace RSpeCpp {
 	protected:
 		
 		void addExampleGroup(self_type &group) {
-			
+
 			_examples.push_back(&group);
 			
 		}

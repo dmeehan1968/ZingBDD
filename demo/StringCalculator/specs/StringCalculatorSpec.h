@@ -17,7 +17,7 @@ describe(StringCalculator, {
 	
 	context("constructor", {
 		
-		StringCalculator *sut;
+		StringCalculator *sut = nullptr;
 		
 		beforeEach({
 			
@@ -34,11 +34,11 @@ describe(StringCalculator, {
 	
 	context("add", {
 		
-		StringCalculator *sut;
+		std::shared_ptr<StringCalculator> sut;
 		
 		beforeEach({
 			
-			sut = new StringCalculator;
+			sut = std::shared_ptr<StringCalculator>(new StringCalculator);
 			
 		});
 		
@@ -47,12 +47,30 @@ describe(StringCalculator, {
 			expect( sut->add("") ).should.equal( 0 );
 			
 		});
+
+		context("single numbers", {
 		
-		it("a string with the digit one", {
+			it("with digit one", {
+				
+				expect( sut->add("1") ).should.equal( 1 );
+				
+			});
 			
-			expect( sut->add("1") ).should.equal( 1 );
+			it("three consequtive digits", {
+				
+				expect( sut->add("123") ).should.equal( 123 );
+				
+			});
 			
 		});
+		
+		it("numbers separated by comma", {
+			
+			expect( sut->add("1,2") ).should.equal( 3 );
+			
+		});
+
+
 		
 	});
 	
