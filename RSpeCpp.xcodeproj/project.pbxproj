@@ -39,6 +39,11 @@
 		A3176FA1187C29910092DC27 /* StreamReporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamReporter.h; sourceTree = "<group>"; };
 		A3CE2F9F187C702F00195E3C /* CalculatorParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorParser.h; sourceTree = "<group>"; };
 		A3CE2FA0187C721F00195E3C /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
+		A3CE2FA1187CB0F500195E3C /* EqualMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EqualMatcher.h; sourceTree = "<group>"; };
+		A3CE2FA2187CB12500195E3C /* NilMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NilMatcher.h; sourceTree = "<group>"; };
+		A3CE2FA3187CB19600195E3C /* RaiseMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaiseMatcher.h; sourceTree = "<group>"; };
+		A3CE2FA4187CB1B500195E3C /* BooleanMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BooleanMatcher.h; sourceTree = "<group>"; };
+		A3CE2FA5187CB1D400195E3C /* Verifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Verifier.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				A3176F92187AD83D0092DC27 /* Expectation.h */,
+				A3CE2FA5187CB1D400195E3C /* Verifier.h */,
+				A3CE2FA4187CB1B500195E3C /* BooleanMatcher.h */,
+				A3CE2FA3187CB19600195E3C /* RaiseMatcher.h */,
+				A3CE2FA2187CB12500195E3C /* NilMatcher.h */,
+				A3CE2FA1187CB0F500195E3C /* EqualMatcher.h */,
 				A3176F93187AD9590092DC27 /* Example.h */,
 				A3176F94187AD98E0092DC27 /* ExampleGroup.h */,
 				A3176F97187ADB290092DC27 /* Macros.h */,
