@@ -11,6 +11,7 @@
 #include <sstream>
 
 #include "StringCalculatorSpec.h"
+#include "BooleanMatcherSpec.h"
 
 int main(int argc, const char * argv[])
 {

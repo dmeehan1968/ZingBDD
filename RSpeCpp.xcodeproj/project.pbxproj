@@ -45,6 +45,7 @@
 		A3CE2FA4187CB1B500195E3C /* BooleanMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BooleanMatcher.h; sourceTree = "<group>"; };
 		A3CE2FA5187CB1D400195E3C /* Verifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Verifier.h; sourceTree = "<group>"; };
 		A3CE2FA6187DD9A900195E3C /* Matcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matcher.h; sourceTree = "<group>"; };
+		A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BooleanMatcherSpec.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 			children = (
 				A3176F98187B34170092DC27 /* demo */,
 				A3176F90187AD7D50092DC27 /* include */,
+				A3CE2FA8187DEADC00195E3C /* specs */,
 				A3176F8F187AD7BC0092DC27 /* src */,
 				A3176F861879E9B70092DC27 /* main.cpp */,
 				A3176F841879E9B70092DC27 /* Products */,
@@ -138,6 +140,14 @@
 			isa = PBXGroup;
 			children = (
 				A3176F9D187B35600092DC27 /* StringCalculatorSpec.h */,
+			);
+			path = specs;
+			sourceTree = "<group>";
+		};
+		A3CE2FA8187DEADC00195E3C /* specs */ = {
+			isa = PBXGroup;
+			children = (
+				A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.h */,
 			);
 			path = specs;
 			sourceTree = "<group>";
