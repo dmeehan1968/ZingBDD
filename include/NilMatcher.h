@@ -11,15 +11,23 @@
 
 namespace RSpeCpp {
 
-    template <typename T, bool logical>
-	class NilMatcher {
+    template <typename T>
+	class NilMatcher : public Matcher<T> {
+    public:
+        using Matcher<T>::Matcher;
+    };
+    
+    template <typename T>
+    class NilMatcher<T *> : public Matcher<T *> {
 		
 	public:
-		NilMatcher( const T& actual ) : _actual(&actual) {}
+        using Matcher<T *>::Matcher;
+        using Matcher<T *>::actual;
+        using Matcher<T *>::logical;
 		
 		void beNil() {
 			
-			if ((_actual != nullptr) == logical) {
+			if ((actual() != nullptr) == logical()) {
 				
 				throw std::runtime_error(error());
 			}
@@ -28,7 +36,7 @@ namespace RSpeCpp {
 		
 		void beNonNil() {
 			
-			if ((_actual == nullptr) == logical) {
+			if ((actual() == nullptr) == logical()) {
 				
 				throw std::runtime_error(error());
 			}
@@ -36,15 +44,13 @@ namespace RSpeCpp {
 		}
 		
 		std::string error() {
-			if (logical) {
+			if (logical()) {
 				return "expected Nil";
 			} else {
 				return "expected not to be Nil";
 			}
 		}
 		
-	private:
-		const T* _actual;
 	};
     
 

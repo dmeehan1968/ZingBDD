@@ -9,18 +9,26 @@
 #ifndef RSpeCpp_BooleanMatcher_h
 #define RSpeCpp_BooleanMatcher_h
 
+#include "Matcher.h"
+
 namespace RSpeCpp {
+
+    template <typename T> class BooleanMatcher : public Matcher<T> {
+    public:
+        using Matcher<T>::Matcher;
+    };
     
-    template <typename T, bool logical>
-    class BooleanMatcher {
+    template <>
+    class BooleanMatcher<bool> : public Matcher<bool> {
         
     public:
-        
-        BooleanMatcher( const T& actual ) : _actual(actual) {}
+        using Matcher<bool>::Matcher;
+        using Matcher<bool>::actual;
+        using Matcher<bool>::logical;
         
         void beTrue() {
             
-            if ((_actual != true) == logical) {
+            if ((actual() != true) == logical()) {
                 
                 throw std::runtime_error(error());
                 
@@ -30,7 +38,7 @@ namespace RSpeCpp {
         
         void beFalse() {
             
-            if ((_actual != false) == logical) {
+            if ((actual() != false) == logical()) {
                 
                 throw std::runtime_error("expected false");
                 
@@ -39,16 +47,12 @@ namespace RSpeCpp {
         }
         
         std::string error() {
-            if (logical) {
+            if (logical()) {
                 return "expected true";
             } else {
                 return "expected false";
             }
         }
-        
-    private:
-        
-        const T& _actual;
         
     };
 

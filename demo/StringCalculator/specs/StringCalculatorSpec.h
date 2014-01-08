@@ -163,11 +163,11 @@ describe(StringCalculator, {
                 expect( false ).shouldNot.beTrue();
                 
             });
-            
+
 		});
 
     });
-    
+
 });
 
 #endif

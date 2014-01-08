@@ -9,17 +9,21 @@
 #ifndef RSpeCpp_EqualMatcher_h
 #define RSpeCpp_EqualMatcher_h
 
+#include "Matcher.h"
+
 namespace RSpeCpp {
     
-    template <typename T, bool logical>
-	class EqualMatcher {
+    template <typename T>
+	class EqualMatcher : public Matcher<T> {
 		
 	public:
-		EqualMatcher( const T& actual ) : _actual(actual) { }
-		
+        using Matcher<T>::Matcher;
+        using Matcher<T>::actual;
+        using Matcher<T>::logical;
+        
 		void equal( const T& expected ) {
 			
-			if ((_actual != expected) == logical) {
+			if ((actual() != expected) == logical()) {
 				
 				throw std::runtime_error(error(expected));
 				
@@ -28,17 +32,14 @@ namespace RSpeCpp {
 		
 		std::string error(const T& expected) {
 			std::ostringstream ss;
-			if (logical) {
-				ss << "expected " << expected << ", got " << _actual;
+			if (logical()) {
+				ss << "expected " << expected << ", got " << actual();
 			} else {
 				ss << "should not be equal to " << expected;
 			}
 			return ss.str();
 		}
-		
-	private:
-		const T& _actual;
-		
+
 	};
 	
 }

@@ -11,11 +11,11 @@
 
 namespace RSpeCpp {
     
-    template <typename T, bool logical, template <typename, bool> class... Matchers>
-	class Verifier : public Matchers<T, logical>... {
+    template <typename T, template <typename> class... Matchers>
+	class Verifier : public Matchers<T>... {
 		
 	public:
-		Verifier( const T& actual ) : Matchers<T, logical>(actual)... {}
+		Verifier( const T& actual, bool logical ) : Matchers<T>(actual, logical)... {}
 		
 	};
     

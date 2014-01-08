@@ -9,41 +9,63 @@
 #ifndef RSpeCpp_RaiseMatcher_h
 #define RSpeCpp_RaiseMatcher_h
 
+#include "Matcher.h"
+
 namespace RSpeCpp {
     
-    template <typename T, bool logical>
-    class RaiseMatcher {
+    template <typename T>
+    class RaiseMatcher : public Matcher<T> {
+    public:
+        using Matcher<T>::Matcher;
+    };
+    
+    template <>
+    class RaiseMatcher<std::function<void(void)>> : public Matcher<std::function<void(void)>> {
         
     public:
-        
-        RaiseMatcher( const T& actual ) : _actual(actual) {}
+        using T = std::function<void(void)>;
+        using Matcher<T>::Matcher;
+        using Matcher<T>::actual;
+        using Matcher<T>::logical;
         
         void raise(std::string what = "") {
             
             try {
                 
-                _actual();
+                auto block = actual();
+                block();
                 
             } catch (std::exception &e) {
                 
-                if (what.size() == 0 || e.what() == what) {
-                    return;
-                }
-                
                 std::ostringstream os;
-                
-                os << "Expected '" << what << "', got '" << e.what() << "'";
-                throw std::runtime_error(os.str());
-                
+
+                if (logical()) {
+
+                    if (what.size() == 0 || e.what() == what) {
+                        return;
+                    }
+
+                    os << "Expected '" << what << "', got '" << e.what() << "'";
+                    throw std::runtime_error(os.str());
+
+                } else {
+                    
+                    os << "Unexpected exception '" << e.what() << "'";
+                    
+                    throw std::runtime_error(os.str());
+                    
+                }
             }
             
-            throw std::runtime_error("exception was not received");
+            if (logical()) {
+                
+                throw std::runtime_error("exception was not received");
+                
+            } else {
+                // expected, fall through
+            }
             
         }
-        
-    private:
-        
-        const T& _actual;
         
     };
 
