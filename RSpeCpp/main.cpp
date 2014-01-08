@@ -10,8 +10,8 @@
 #include <vector>
 #include <sstream>
 
-#include "StringCalculatorSpec.h"
 #include "BooleanMatcherSpec.h"
+#include "StringCalculatorSpec.h"
 
 int main(int argc, const char * argv[])
 {
