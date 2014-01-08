@@ -149,6 +149,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3176F8C1879E9B70092DC27 /* Build configuration list for PBXNativeTarget "RSpeCpp" */;
 			buildPhases = (
+				A3CE2FA7187DEA4C00195E3C /* Clean Profiler Information (Prevents spurious error messages) */,
 				A3176F7F1879E9B70092DC27 /* Sources */,
 				A3176F801879E9B70092DC27 /* Frameworks */,
 				A3176F811879E9B70092DC27 /* CopyFiles */,
@@ -187,6 +188,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A3CE2FA7187DEA4C00195E3C /* Clean Profiler Information (Prevents spurious error messages) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Clean Profiler Information (Prevents spurious error messages)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Cleaning Profiler Information\"\ncd \"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}\"\n# Delete *.gcda files in the current target\nrm -f *.gcda";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A3176F7F1879E9B70092DC27 /* Sources */ = {

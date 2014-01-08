@@ -164,6 +164,36 @@ describe(StringCalculator, {
                 
             });
 
+            it("exception on true != true", {
+                
+                try {
+                    expect( true ).shouldNot.beTrue();
+                    
+                } catch (std::exception &e) {
+                    
+                    return;
+                    
+                }
+                
+                throw std::runtime_error("exception not received");
+                
+            });
+            
+            it("exception on false != false", {
+                
+                try {
+                    expect( false ).shouldNot.beFalse();
+                    
+                } catch (std::exception &e) {
+                    
+                    return;
+                    
+                }
+                
+                throw std::runtime_error("exception not received");
+                
+            });
+            
 		});
 
     });
