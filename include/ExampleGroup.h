@@ -96,6 +96,11 @@ namespace RSpeCpp {
 		
 		void doAfterEach() {
 			
+			for ( auto after : _afterEach ) {
+				
+				after();
+				
+			}
             if (parent() != nullptr) {
                 
                 ExampleGroup *parentGroup = dynamic_cast<ExampleGroup *>(parent());
@@ -104,12 +109,6 @@ namespace RSpeCpp {
                     parentGroup->doAfterEach();
                 }
             }
-            
-			for ( auto after : _afterEach ) {
-				
-				after();
-				
-			}
 
 		}
 		
