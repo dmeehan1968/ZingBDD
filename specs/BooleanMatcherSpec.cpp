@@ -1,13 +1,10 @@
 //
-//  BooleanMatcherSpec.h
+//  BooleanMatcherSpec.cpp
 //  RSpeCpp
 //
 //  Created by Dave Meehan on 08/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
-
-#ifndef RSpeCpp_BooleanMatcherSpec_h
-#define RSpeCpp_BooleanMatcherSpec_h
 
 #include "ZingBDD.h"
 
@@ -73,4 +70,3 @@ describe(BooleanMatcher, {
 
 });
 
-#endif

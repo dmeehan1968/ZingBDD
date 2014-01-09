@@ -1,5 +1,5 @@
 //
-//  StringCalculatorSpec.h
+//  StringCalculatorSpec.cpp
 //  RSpeCpp
 //
 //  Created by Dave Meehan on 06/01/2014.
