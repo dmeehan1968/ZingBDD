@@ -23,7 +23,7 @@ namespace StringCalculator {
         
         static CharacterSet decimalDigitCharacterSet() {
             
-            return CharacterSet("0123456789");
+            return CharacterSet("-+0123456789");
             
         }
     };

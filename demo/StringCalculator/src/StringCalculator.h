@@ -27,10 +27,24 @@ namespace StringCalculator {
         int sumNumbers(std::vector<int> parsedNumbers) {
             
             int result = 0;
+            std::vector<int> negatives;
             
             for (auto number : parsedNumbers) {
+            
+                if (number < 0) {
+                    negatives.push_back(number);
+                } else {
+                    result += number;
+                }
+            }
+            
+            if ( ! negatives.empty()) {
                 
-                result += number;
+                std::ostringstream os;
+                os << "Negatives not allowed: ";
+                std::copy(negatives.begin(), negatives.end()-1, std::ostream_iterator<int>(os, ", "));
+                os << negatives.back();
+                throw std::runtime_error(os.str());
             }
 
             return result;

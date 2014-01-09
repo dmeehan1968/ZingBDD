@@ -68,7 +68,7 @@ describe(StringCalculator, {
             
         });
 
-        context("comma separated", {
+        context("comma delimited", {
 
             it("single digit numbers separated", {
                 
@@ -90,7 +90,7 @@ describe(StringCalculator, {
             
         });
         
-        context("newline separated", {
+        context("newline delimited", {
             
             it("numbers separated by newline or comma", {
 
@@ -143,7 +143,7 @@ describe(StringCalculator, {
             
             it("two delimiters", {
                 
-                expect( sut->add("//;+\n1;2+3") ).should.equal( 6 );
+                expect( sut->add("//;:\n1;2:3") ).should.equal( 6 );
                 
             });
             
@@ -164,6 +164,30 @@ describe(StringCalculator, {
                     sut->add("//;1;2;3");
                     
                 })).should.raise<std::runtime_error>("Expected delimiter terminator");
+                
+            });
+            
+        });
+        
+        context("negative numbers", {
+           
+            it("throws on negative", {
+                
+                expect(theBlock({
+                    
+                    sut->add("-1");
+                    
+                })).should.raise<std::runtime_error>("Negatives not allowed: -1");
+                
+            });
+            
+            it("throws on multiple negatives", {
+                
+                expect(theBlock({
+                    
+                    sut->add("1,2,-3,4,-5");
+                    
+                })).should.raise<std::runtime_error>("Negatives not allowed: -3, -5");
                 
             });
             
