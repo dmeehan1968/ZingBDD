@@ -12,6 +12,7 @@
 #include "Example.h"
 #include "Reporter.h"
 #include "BeforeEach.h"
+#include "AfterEach.h"
 
 namespace RSpeCpp {
 	
@@ -20,6 +21,7 @@ namespace RSpeCpp {
 	public:
 		using block_type = std::function<void(Reporter &, ExampleGroup &)>;
 		using beforeEaches_type = std::vector<BeforeEach>;
+		using afterEaches_type = std::vector<AfterEach>;
 		
 		ExampleGroup(const string_type &description) : Example(description), _block(nullptr) {}
 
@@ -64,6 +66,12 @@ namespace RSpeCpp {
 			
 		}
         
+        void afterEach(AfterEach::block_type block) {
+			
+			_afterEach.emplace_back(AfterEach(block));
+			
+		}
+        
 	protected:
 		
 		ExampleGroup(const string_type &description, ExampleGroup &parent, block_type block) : Example(description, parent), _block(block) {}
@@ -78,6 +86,7 @@ namespace RSpeCpp {
                     parentGroup->doBeforeEach();
                 }
             }
+            
 			for ( auto before : _beforeEach ) {
 				
 				before();
@@ -87,12 +96,28 @@ namespace RSpeCpp {
 		
 		void doAfterEach() {
 			
+            if (parent() != nullptr) {
+                
+                ExampleGroup *parentGroup = dynamic_cast<ExampleGroup *>(parent());
+                
+                if (parentGroup != nullptr) {
+                    parentGroup->doAfterEach();
+                }
+            }
+            
+			for ( auto after : _afterEach ) {
+				
+				after();
+				
+			}
+
 		}
 		
 	private:
 		
 		block_type _block;
 		beforeEaches_type _beforeEach;
+		afterEaches_type _afterEach;
 		
 
 	};

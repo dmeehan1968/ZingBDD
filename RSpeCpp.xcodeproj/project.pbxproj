@@ -48,6 +48,8 @@
 		A3CE2FA6187DD9A900195E3C /* Matcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matcher.h; sourceTree = "<group>"; };
 		A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BooleanMatcherSpec.cpp; sourceTree = "<group>"; };
 		A3F7C569187F1D540092744E /* ZingBDD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZingBDD.h; sourceTree = "<group>"; };
+		A3F7C56D187F23180092744E /* Each.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Each.h; sourceTree = "<group>"; };
+		A3F7C56E187F236E0092744E /* AfterEach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AfterEach.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,8 @@
 				A3176F96187ADB050092DC27 /* Runner.h */,
 				A3176F9E187C09E70092DC27 /* Specification.h */,
 				A3176F9F187C24C70092DC27 /* BeforeEach.h */,
+				A3F7C56E187F236E0092744E /* AfterEach.h */,
+				A3F7C56D187F23180092744E /* Each.h */,
 				A3F7C569187F1D540092744E /* ZingBDD.h */,
 			);
 			path = include;
