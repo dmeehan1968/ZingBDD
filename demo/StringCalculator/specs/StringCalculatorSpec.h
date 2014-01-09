@@ -109,7 +109,7 @@ describe(StringCalculator, {
                     
                     sut->add("1,\n");
                     
-                } ) ).should.raise("Expected number");
+                } ) ).should.raise<std::runtime_error>("Expected number");
                 
             });
 
@@ -119,7 +119,7 @@ describe(StringCalculator, {
                 
                     sut->add("1,,");
                     
-                } ) ).should.raise("Expected number");
+                } ) ).should.raise<std::runtime_error>("Expected number");
                 
             });
 
@@ -133,7 +133,7 @@ describe(StringCalculator, {
                     
                     sut->add("1$");
                     
-                } ) ).should.raise("Expected delimiter");
+                } ) ).should.raise<std::runtime_error>("Expected delimiter");
                 
             });
         });

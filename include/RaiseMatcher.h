@@ -27,7 +27,8 @@ namespace RSpeCpp {
         using Matcher<T>::Matcher;
         using Matcher<T>::actual;
         using Matcher<T>::logical;
-        
+
+        template <class T = std::exception>
         void raise(std::string what = "") {
             
             try {
@@ -35,7 +36,7 @@ namespace RSpeCpp {
                 auto block = actual();
                 block();
                 
-            } catch (std::exception &e) {
+            } catch (T &e) {
                 
                 std::ostringstream os;
 
