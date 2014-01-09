@@ -22,6 +22,12 @@ describe(StringCalculator, {
         
     });
     
+    afterEach({
+       
+        sut = nullptr;
+        
+    });
+    
     it("is default constructible", {
         
         expect( std::is_default_constructible<StringCalculator>::value ).should.beTrue();
@@ -141,7 +147,7 @@ describe(StringCalculator, {
                 
             });
             
-            it("none found throws", {
+            it("no delimiters found throws", {
                
                 expect( theBlock( {
                     

@@ -30,7 +30,10 @@ namespace RSpeCpp {
 }
 
 #define beforeEach(...)														\
-	__group__.beforeEach([&]() __VA_ARGS__)
+    __group__.beforeEach([&]() __VA_ARGS__)
+
+#define afterEach(...)														\
+    __group__.afterEach([&]() __VA_ARGS__)
 
 #define theBlock(...) std::function<void(void)>([&]  __VA_ARGS__ )
 
