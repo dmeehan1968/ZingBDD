@@ -35,9 +35,9 @@ namespace RSpeCpp {
 		std::string error(const T& expected) {
 			std::ostringstream ss;
 			if (logical()) {
-				ss << "expected " << expected << ", got " << actual();
+				ss << "expected '" << expected << "', got '" << actual() << "'";
 			} else {
-				ss << "should not be equal to " << expected;
+				ss << "should not be equal to '" << expected << "'";
 			}
 			return ss.str();
 		}
