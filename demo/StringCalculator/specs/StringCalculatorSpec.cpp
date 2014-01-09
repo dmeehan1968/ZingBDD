@@ -14,6 +14,14 @@ describe(StringCalculator, {
     
     using StringCalculator::StringCalculator;
 
+    std::shared_ptr<StringCalculator> sut;
+    
+    beforeEach({
+        
+        sut = std::make_shared<StringCalculator>();
+        
+    });
+    
     it("is default constructible", {
         
         expect( std::is_default_constructible<StringCalculator>::value ).should.beTrue();
@@ -21,14 +29,6 @@ describe(StringCalculator, {
     });
 
     context("constructor", {
-        
-        std::shared_ptr<StringCalculator> sut;
-        
-        beforeEach({
-            
-            sut = std::make_shared<StringCalculator>();
-            
-        });
         
         it("exists", {
             
@@ -39,14 +39,6 @@ describe(StringCalculator, {
     });
     
     context("add", {
-        
-        std::shared_ptr<StringCalculator> sut;
-        
-        beforeEach({
-            
-            sut = std::make_shared<StringCalculator>();
-            
-        });
         
         it("an empty string", {
             
