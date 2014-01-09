@@ -44,14 +44,64 @@ namespace StringCalculator {
 
             _container.clear();
             
+            parseDelimiterSpecification();
+            
+            parseNumbersAndDelimiters();
+            
+            return _container;
+            
+        }
+        
+    protected:
+        
+        bool atEnd() {
+            
+            return _pScanner->atEnd();
+            
+        }
+        
+        void parseDelimiterSpecification() {
+            
+            string_type guard = "//";
+            if (_pScanner->scan(guard.begin(), guard.end(), nullptr)) {
+                
+                CharacterSet terminator("\n");
+                string_type delims;
+                
+                if (_pScanner->scanUpTo(terminator, &delims)) {
+                    
+                    if (_pScanner->scan(terminator, nullptr)) {
+                        
+                        _singleCharacterDelimiters = delims;
+                        
+                        return;
+                        
+                    } else {
+                        
+                        throw std::runtime_error("Expected delimiter terminator");
+                        
+                    }
+                    
+                } else {
+                    
+                    throw std::runtime_error("Expected delimiters");
+                    
+                }
+                
+            }
+            
+        }
+        
+        void parseNumbersAndDelimiters() {
+            
             while ( ! atEnd() ) {
-
+                
                 value_type value;
                 
                 if (parseNumber(value)) {
-
+                    
                     _container.push_back(value);
-
+                    
                     if ( ! atEnd() && ! parseDelimiters() ) {
                         
                         throw std::runtime_error("Expected delimiter");
@@ -64,17 +114,7 @@ namespace StringCalculator {
                     
                 }
             }
-            
-            return _container;
-            
-        }
-        
-    protected:
-        
-        bool atEnd() {
-            
-            return _pScanner->atEnd();
-            
+
         }
         
         bool parseNumber(value_type &value) {

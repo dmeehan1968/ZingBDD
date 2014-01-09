@@ -21,7 +21,7 @@ namespace StringCalculator {
     class Scanner {
      
     public:
-        using iterator_type = typename input_type::iterator;
+        using iterator_type = typename input_type::const_iterator;
         using value_type = typename input_type::value_type;
         using valueset_type = std::set<value_type>;
         
@@ -67,6 +67,55 @@ namespace StringCalculator {
             }
             
             return _iterator != start;
+            
+        }
+        
+        bool scanUpTo(valueset_type const &valueset, output_type * const output) {
+        
+            iterator_type start = _iterator;
+            
+            while ( ! atEnd() && valueset.find(*_iterator) == valueset.end()) {
+                
+                if (output != nullptr) {
+                    
+                    output->push_back(*_iterator);
+                    
+                }
+                
+                _iterator++;
+                
+            }
+            
+            return _iterator != start;
+            
+        }
+        
+        bool scan(iterator_type begin, iterator_type const end, output_type * const output) {
+         
+            iterator_type start = _iterator;
+            
+            while ( ! atEnd() && *_iterator == *begin && begin != end ) {
+                
+                if (output != nullptr) {
+                    
+                    output->push_back(*_iterator);
+                    
+                }
+                
+                _iterator++;
+                begin++;
+                
+            }
+            
+            if (begin == end) {
+            
+                return true;
+                
+            }
+            
+            _iterator = start;
+            
+            return false;
             
         }
         

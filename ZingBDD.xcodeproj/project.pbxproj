@@ -260,10 +260,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F7C577187F26060092744E /* HelloWorld.cpp in Sources */,
+				A3F7C574187F256E0092744E /* HelloWorldSpec.cpp in Sources */,
 				A3F7C56B187F1F620092744E /* BooleanMatcherSpec.cpp in Sources */,
 				A3F7C56C187F20610092744E /* StringCalculatorSpec.cpp in Sources */,
 				A3F7C579187F300B0092744E /* main.cpp in Sources */,
-				A3F7C574187F256E0092744E /* HelloWorldSpec.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

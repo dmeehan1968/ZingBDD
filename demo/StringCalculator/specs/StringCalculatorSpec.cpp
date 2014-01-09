@@ -126,6 +126,42 @@ describe(StringCalculator, {
                 
             });
         });
+        
+        context("alternate delimiters", {
+           
+            it("one delimiter", {
+                
+                expect( sut->add("//;\n1;2") ).should.equal( 3 );
+                
+            });
+            
+            it("two delimiters", {
+                
+                expect( sut->add("//;+\n1;2+3") ).should.equal( 6 );
+                
+            });
+            
+            it("none found throws", {
+               
+                expect( theBlock( {
+                    
+                    sut->add("//\n");
+                    
+                })).should.raise<std::runtime_error>("Expected delimiters");
+                
+            });
+            
+            it("missing terminator throws", {
+               
+                expect( theBlock( {
+                    
+                    sut->add("//;1;2;3");
+                    
+                })).should.raise<std::runtime_error>("Expected delimiter terminator");
+                
+            });
+            
+        });
 
     });
 
