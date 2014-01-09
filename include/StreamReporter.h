@@ -9,6 +9,7 @@
 #ifndef RSpeCpp_StreamReporter_h
 #define RSpeCpp_StreamReporter_h
 
+#include "Reporter.h"
 
 namespace RSpeCpp {
 	

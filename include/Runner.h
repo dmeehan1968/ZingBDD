@@ -9,6 +9,9 @@
 #ifndef RSpeCpp_Runner_h
 #define RSpeCpp_Runner_h
 
+#include "Example.h"
+#include "Reporter.h"
+
 namespace RSpeCpp {
 	
 	class Runner {

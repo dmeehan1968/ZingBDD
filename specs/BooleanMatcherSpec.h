@@ -9,7 +9,7 @@
 #ifndef RSpeCpp_BooleanMatcherSpec_h
 #define RSpeCpp_BooleanMatcherSpec_h
 
-#include "RSpeCpp.h"
+#include "ZingBDD.h"
 
 describe(BooleanMatcher, {
     

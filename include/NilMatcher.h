@@ -9,6 +9,8 @@
 #ifndef RSpeCpp_NilMatcher_h
 #define RSpeCpp_NilMatcher_h
 
+#include "Matcher.h"
+
 namespace RSpeCpp {
 
     template <typename T>

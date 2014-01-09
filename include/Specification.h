@@ -9,6 +9,9 @@
 #ifndef RSpeCpp_Specification_h
 #define RSpeCpp_Specification_h
 
+#include "ExampleGroup.h"
+#include "Runner.h"
+
 namespace RSpeCpp {
 	
 	class Specification : public ExampleGroup {

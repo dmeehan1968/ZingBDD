@@ -9,7 +9,9 @@
 #ifndef RSpeCpp_ExampleGroup_h
 #define RSpeCpp_ExampleGroup_h
 
-#include <fstream>
+#include "Example.h"
+#include "Reporter.h"
+#include "BeforeEach.h"
 
 namespace RSpeCpp {
 	
@@ -55,13 +57,13 @@ namespace RSpeCpp {
 			doAfterEach();
 			
 		}
-		
-		void beforeEach(BeforeEach::block_type block) {
+        
+        void beforeEach(BeforeEach::block_type block) {
 			
 			_beforeEach.emplace_back(BeforeEach(block));
 			
 		}
-			
+        
 	protected:
 		
 		ExampleGroup(const string_type &description, ExampleGroup &parent, block_type block) : Example(description, parent), _block(block) {}
@@ -84,6 +86,7 @@ namespace RSpeCpp {
 		block_type _block;
 		beforeEaches_type _beforeEach;
 		
+
 	};
 	
 }

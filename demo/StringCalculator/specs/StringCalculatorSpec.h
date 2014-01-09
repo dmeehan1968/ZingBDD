@@ -9,7 +9,7 @@
 #ifndef RSpeCpp_StringCalculatorSpec_h
 #define RSpeCpp_StringCalculatorSpec_h
 
-#include "RSpeCpp.h"
+#include "ZingBDD.h"
 
 #include "StringCalculator.h"
 

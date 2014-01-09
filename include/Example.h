@@ -9,6 +9,9 @@
 #ifndef RSpeCpp_Example_h
 #define RSpeCpp_Example_h
 
+#include "Reporter.h"
+#include "Expectation.h"
+
 namespace RSpeCpp {
 
 	class Example {
