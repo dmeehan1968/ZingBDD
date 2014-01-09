@@ -13,9 +13,6 @@
 #include "BooleanMatcherSpec.h"
 #include "StringCalculatorSpec.h"
 
-#include "Runner.h"
-#include "StreamReporter.h"
-
 int main(int argc, const char * argv[])
 {
 

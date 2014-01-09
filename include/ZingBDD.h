@@ -10,6 +10,8 @@
 #define RSpeCpp_ZingBDD_h
 
 #include "Specification.h"
+#include "Runner.h"
+#include "StreamReporter.h"
 
 // WARNING: Do Not Include Macros.h before Specification.h
 #include "Macros.h"
