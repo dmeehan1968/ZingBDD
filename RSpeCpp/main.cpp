@@ -7,11 +7,8 @@
 //
 
 #include <iostream>
-#include <vector>
-#include <sstream>
 
-#include "BooleanMatcherSpec.h"
-#include "StringCalculatorSpec.h"
+#include "ZingBDD.h"
 
 int main(int argc, const char * argv[])
 {

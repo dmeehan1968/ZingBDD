@@ -9,6 +9,9 @@
 #ifndef RSpeCpp_Reporter_h
 #define RSpeCpp_Reporter_h
 
+#include <iostream>
+#include <vector>
+
 namespace RSpeCpp {
 	
 	class Failure {

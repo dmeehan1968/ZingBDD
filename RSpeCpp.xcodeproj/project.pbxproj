@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A3176F871879E9B70092DC27 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3176F861879E9B70092DC27 /* main.cpp */; };
+		A3F7C56B187F1F620092744E /* BooleanMatcherSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.cpp */; };
+		A3F7C56C187F20610092744E /* StringCalculatorSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3176F9D187B35600092DC27 /* StringCalculatorSpec.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,7 +33,7 @@
 		A3176F96187ADB050092DC27 /* Runner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Runner.h; sourceTree = "<group>"; };
 		A3176F97187ADB290092DC27 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		A3176F9C187B353B0092DC27 /* StringCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringCalculator.h; sourceTree = "<group>"; };
-		A3176F9D187B35600092DC27 /* StringCalculatorSpec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringCalculatorSpec.h; sourceTree = "<group>"; };
+		A3176F9D187B35600092DC27 /* StringCalculatorSpec.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringCalculatorSpec.cpp; sourceTree = "<group>"; };
 		A3176F9E187C09E70092DC27 /* Specification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Specification.h; sourceTree = "<group>"; };
 		A3176F9F187C24C70092DC27 /* BeforeEach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeforeEach.h; sourceTree = "<group>"; };
 		A3176FA0187C28EF0092DC27 /* Reporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
@@ -44,7 +46,7 @@
 		A3CE2FA4187CB1B500195E3C /* BooleanMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BooleanMatcher.h; sourceTree = "<group>"; };
 		A3CE2FA5187CB1D400195E3C /* Verifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Verifier.h; sourceTree = "<group>"; };
 		A3CE2FA6187DD9A900195E3C /* Matcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matcher.h; sourceTree = "<group>"; };
-		A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BooleanMatcherSpec.h; sourceTree = "<group>"; };
+		A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BooleanMatcherSpec.cpp; sourceTree = "<group>"; };
 		A3F7C569187F1D540092744E /* ZingBDD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZingBDD.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,7 +141,7 @@
 		A3176F9B187B35170092DC27 /* specs */ = {
 			isa = PBXGroup;
 			children = (
-				A3176F9D187B35600092DC27 /* StringCalculatorSpec.h */,
+				A3176F9D187B35600092DC27 /* StringCalculatorSpec.cpp */,
 			);
 			path = specs;
 			sourceTree = "<group>";
@@ -147,7 +149,7 @@
 		A3CE2FA8187DEADC00195E3C /* specs */ = {
 			isa = PBXGroup;
 			children = (
-				A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.h */,
+				A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.cpp */,
 			);
 			path = specs;
 			sourceTree = "<group>";
@@ -221,6 +223,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F7C56B187F1F620092744E /* BooleanMatcherSpec.cpp in Sources */,
+				A3F7C56C187F20610092744E /* StringCalculatorSpec.cpp in Sources */,
 				A3176F871879E9B70092DC27 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

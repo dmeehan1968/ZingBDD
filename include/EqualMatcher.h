@@ -9,6 +9,8 @@
 #ifndef RSpeCpp_EqualMatcher_h
 #define RSpeCpp_EqualMatcher_h
 
+#include <sstream>
+
 #include "Matcher.h"
 
 namespace RSpeCpp {

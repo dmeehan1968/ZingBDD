@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_StringCalculatorSpec_h
-#define RSpeCpp_StringCalculatorSpec_h
-
 #include "ZingBDD.h"
 
 #include "StringCalculator.h"
@@ -141,5 +138,3 @@ describe(StringCalculator, {
     });
 
 });
-
-#endif
