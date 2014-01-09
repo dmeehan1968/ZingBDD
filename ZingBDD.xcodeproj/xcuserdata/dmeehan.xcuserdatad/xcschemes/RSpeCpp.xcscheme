@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A3176F821879E9B70092DC27"
                BuildableName = "RSpeCpp"
-               BlueprintName = "RSpeCpp"
-               ReferencedContainer = "container:RSpeCpp.xcodeproj">
+               BlueprintName = "ZingBDD"
+               ReferencedContainer = "container:ZingBDD.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A3176F821879E9B70092DC27"
             BuildableName = "RSpeCpp"
-            BlueprintName = "RSpeCpp"
-            ReferencedContainer = "container:RSpeCpp.xcodeproj">
+            BlueprintName = "ZingBDD"
+            ReferencedContainer = "container:ZingBDD.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A3176F821879E9B70092DC27"
             BuildableName = "RSpeCpp"
-            BlueprintName = "RSpeCpp"
-            ReferencedContainer = "container:RSpeCpp.xcodeproj">
+            BlueprintName = "ZingBDD"
+            ReferencedContainer = "container:ZingBDD.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A3176F821879E9B70092DC27"
             BuildableName = "RSpeCpp"
-            BlueprintName = "RSpeCpp"
-            ReferencedContainer = "container:RSpeCpp.xcodeproj">
+            BlueprintName = "ZingBDD"
+            ReferencedContainer = "container:ZingBDD.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

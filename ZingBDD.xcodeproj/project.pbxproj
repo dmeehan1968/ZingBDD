@@ -27,7 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A3176F831879E9B70092DC27 /* RSpeCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RSpeCpp; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3176F831879E9B70092DC27 /* ZingBDD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ZingBDD; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3176F861879E9B70092DC27 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = RSpeCpp/main.cpp; sourceTree = "<group>"; };
 		A3176F92187AD83D0092DC27 /* Expectation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Expectation.h; sourceTree = "<group>"; };
 		A3176F93187AD9590092DC27 /* Example.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		A3176F841879E9B70092DC27 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A3176F831879E9B70092DC27 /* RSpeCpp */,
+				A3176F831879E9B70092DC27 /* ZingBDD */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,9 +193,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A3176F821879E9B70092DC27 /* RSpeCpp */ = {
+		A3176F821879E9B70092DC27 /* ZingBDD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A3176F8C1879E9B70092DC27 /* Build configuration list for PBXNativeTarget "RSpeCpp" */;
+			buildConfigurationList = A3176F8C1879E9B70092DC27 /* Build configuration list for PBXNativeTarget "ZingBDD" */;
 			buildPhases = (
 				A3CE2FA7187DEA4C00195E3C /* Clean Profiler Information (Prevents spurious error messages) */,
 				A3176F7F1879E9B70092DC27 /* Sources */,
@@ -206,9 +206,9 @@
 			);
 			dependencies = (
 			);
-			name = RSpeCpp;
+			name = ZingBDD;
 			productName = RSpeCpp;
-			productReference = A3176F831879E9B70092DC27 /* RSpeCpp */;
+			productReference = A3176F831879E9B70092DC27 /* ZingBDD */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -220,7 +220,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Replicated Solutions Limited";
 			};
-			buildConfigurationList = A3176F7E1879E9B70092DC27 /* Build configuration list for PBXProject "RSpeCpp" */;
+			buildConfigurationList = A3176F7E1879E9B70092DC27 /* Build configuration list for PBXProject "ZingBDD" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -232,7 +232,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A3176F821879E9B70092DC27 /* RSpeCpp */,
+				A3176F821879E9B70092DC27 /* ZingBDD */,
 			);
 		};
 /* End PBXProject section */
@@ -343,7 +343,7 @@
 			buildSettings = {
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ZingBDD;
 			};
 			name = Debug;
 		};
@@ -352,14 +352,14 @@
 			buildSettings = {
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ZingBDD;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A3176F7E1879E9B70092DC27 /* Build configuration list for PBXProject "RSpeCpp" */ = {
+		A3176F7E1879E9B70092DC27 /* Build configuration list for PBXProject "ZingBDD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3176F8A1879E9B70092DC27 /* Debug */,
@@ -368,7 +368,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3176F8C1879E9B70092DC27 /* Build configuration list for PBXNativeTarget "RSpeCpp" */ = {
+		A3176F8C1879E9B70092DC27 /* Build configuration list for PBXNativeTarget "ZingBDD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A3176F8D1879E9B70092DC27 /* Debug */,
