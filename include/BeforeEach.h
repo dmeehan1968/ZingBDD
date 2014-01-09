@@ -19,6 +19,7 @@ namespace RSpeCpp {
 		BeforeEach(block_type block) : _block(block) {}
 		
 		void operator() () {
+            std::cout << "beforeEach" << std::endl;
 			_block();
 		}
 		

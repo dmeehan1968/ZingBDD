@@ -77,6 +77,12 @@ namespace RSpeCpp {
 			
 		}
         
+        Example *parent() {
+            
+            return _parent;
+            
+        }
+        
 	protected:
 		
 		Example(const string_type &description) : _description(description), _parent(nullptr), _block(nullptr) {}
