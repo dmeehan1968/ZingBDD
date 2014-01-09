@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A3176F871879E9B70092DC27 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3176F861879E9B70092DC27 /* main.cpp */; };
 		A3F7C56B187F1F620092744E /* BooleanMatcherSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.cpp */; };
 		A3F7C56C187F20610092744E /* StringCalculatorSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3176F9D187B35600092DC27 /* StringCalculatorSpec.cpp */; };
 		A3F7C574187F256E0092744E /* HelloWorldSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3F7C572187F256E0092744E /* HelloWorldSpec.cpp */; };
 		A3F7C577187F26060092744E /* HelloWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3F7C575187F26060092744E /* HelloWorld.cpp */; };
+		A3F7C579187F300B0092744E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3F7C578187F300B0092744E /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,7 +28,6 @@
 
 /* Begin PBXFileReference section */
 		A3176F831879E9B70092DC27 /* ZingBDD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ZingBDD; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3176F861879E9B70092DC27 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = RSpeCpp/main.cpp; sourceTree = "<group>"; };
 		A3176F92187AD83D0092DC27 /* Expectation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Expectation.h; sourceTree = "<group>"; };
 		A3176F93187AD9590092DC27 /* Example.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Example.h; sourceTree = "<group>"; };
 		A3176F94187AD98E0092DC27 /* ExampleGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleGroup.h; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		A3F7C572187F256E0092744E /* HelloWorldSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldSpec.cpp; sourceTree = "<group>"; };
 		A3F7C575187F26060092744E /* HelloWorld.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorld.cpp; sourceTree = "<group>"; };
 		A3F7C576187F26060092744E /* HelloWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorld.h; sourceTree = "<group>"; };
+		A3F7C578187F300B0092744E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,6 @@
 				A3176F90187AD7D50092DC27 /* include */,
 				A3CE2FA8187DEADC00195E3C /* specs */,
 				A3176F8F187AD7BC0092DC27 /* src */,
-				A3176F861879E9B70092DC27 /* main.cpp */,
 				A3176F841879E9B70092DC27 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,6 +90,7 @@
 		A3176F8F187AD7BC0092DC27 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				A3F7C578187F300B0092744E /* main.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -262,8 +262,8 @@
 				A3F7C577187F26060092744E /* HelloWorld.cpp in Sources */,
 				A3F7C56B187F1F620092744E /* BooleanMatcherSpec.cpp in Sources */,
 				A3F7C56C187F20610092744E /* StringCalculatorSpec.cpp in Sources */,
+				A3F7C579187F300B0092744E /* main.cpp in Sources */,
 				A3F7C574187F256E0092744E /* HelloWorldSpec.cpp in Sources */,
-				A3176F871879E9B70092DC27 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
