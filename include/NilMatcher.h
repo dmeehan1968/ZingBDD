@@ -27,7 +27,7 @@ namespace ZingBDD {
 		
 		void beNil() {
 			
-			if ((&Matcher<T *>::actual() != nullptr) == Matcher<T *>::logical()) {
+			if ((&this->actual() != nullptr) == this->logical()) {
 				
 				throw std::runtime_error(error());
 			}
@@ -36,7 +36,7 @@ namespace ZingBDD {
 		
 		void beNonNil() {
 			
-			if ((Matcher<T *>::actual() == nullptr) == Matcher<T *>::logical()) {
+			if ((this->actual() == nullptr) == this->logical()) {
 				
 				throw std::runtime_error(error());
 			}
@@ -44,7 +44,7 @@ namespace ZingBDD {
 		}
 		
 		std::string error() {
-			if (Matcher<T *>::logical()) {
+			if (this->logical()) {
 				return "expected Nil";
 			} else {
 				return "expected not to be Nil";
