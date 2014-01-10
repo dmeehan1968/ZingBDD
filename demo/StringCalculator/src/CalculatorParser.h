@@ -12,21 +12,9 @@
 #include <set>
 
 #include "Scanner.h"
+#include "CharacterSet.h"
 
 namespace StringCalculator {
-    
-    class CharacterSet : public std::set<char> {
-      
-    public:
-        
-        CharacterSet(const std::string initial) : std::set<char>(initial.begin(), initial.end()) {}
-        
-        static CharacterSet decimalDigitCharacterSet() {
-            
-            return CharacterSet("-+0123456789");
-            
-        }
-    };
     
     class CalculatorParser {
         

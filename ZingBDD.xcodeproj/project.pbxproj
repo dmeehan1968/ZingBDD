@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A345AC4B188005B50067632E /* CalculatorParserSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A345AC49188005B50067632E /* CalculatorParserSpec.cpp */; };
 		A3F7C56B187F1F620092744E /* BooleanMatcherSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.cpp */; };
 		A3F7C56C187F20610092744E /* StringCalculatorSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3176F9D187B35600092DC27 /* StringCalculatorSpec.cpp */; };
 		A3F7C574187F256E0092744E /* HelloWorldSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3F7C572187F256E0092744E /* HelloWorldSpec.cpp */; };
@@ -39,6 +40,9 @@
 		A3176F9F187C24C70092DC27 /* BeforeEach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeforeEach.h; sourceTree = "<group>"; };
 		A3176FA0187C28EF0092DC27 /* Reporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
 		A3176FA1187C29910092DC27 /* StreamReporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamReporter.h; sourceTree = "<group>"; };
+		A345AC49188005B50067632E /* CalculatorParserSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CalculatorParserSpec.cpp; sourceTree = "<group>"; };
+		A345AC4C188005F20067632E /* CharacterSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterSet.h; sourceTree = "<group>"; };
+		A345AC4D188008080067632E /* ContainerMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerMatcher.h; sourceTree = "<group>"; };
 		A3CE2F9F187C702F00195E3C /* CalculatorParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorParser.h; sourceTree = "<group>"; };
 		A3CE2FA0187C721F00195E3C /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
 		A3CE2FA1187CB0F500195E3C /* EqualMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EqualMatcher.h; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				A3CE2FA5187CB1D400195E3C /* Verifier.h */,
 				A3CE2FA4187CB1B500195E3C /* BooleanMatcher.h */,
 				A3CE2FA3187CB19600195E3C /* RaiseMatcher.h */,
+				A345AC4D188008080067632E /* ContainerMatcher.h */,
 				A3CE2FA2187CB12500195E3C /* NilMatcher.h */,
 				A3CE2FA1187CB0F500195E3C /* EqualMatcher.h */,
 				A3CE2FA6187DD9A900195E3C /* Matcher.h */,
@@ -143,6 +148,7 @@
 			children = (
 				A3176F9C187B353B0092DC27 /* StringCalculator.h */,
 				A3CE2F9F187C702F00195E3C /* CalculatorParser.h */,
+				A345AC4C188005F20067632E /* CharacterSet.h */,
 				A3CE2FA0187C721F00195E3C /* Scanner.h */,
 			);
 			path = src;
@@ -152,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				A3176F9D187B35600092DC27 /* StringCalculatorSpec.cpp */,
+				A345AC49188005B50067632E /* CalculatorParserSpec.cpp */,
 			);
 			path = specs;
 			sourceTree = "<group>";
@@ -260,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F7C577187F26060092744E /* HelloWorld.cpp in Sources */,
+				A345AC4B188005B50067632E /* CalculatorParserSpec.cpp in Sources */,
 				A3F7C574187F256E0092744E /* HelloWorldSpec.cpp in Sources */,
 				A3F7C56B187F1F620092744E /* BooleanMatcherSpec.cpp in Sources */,
 				A3F7C56C187F20610092744E /* StringCalculatorSpec.cpp in Sources */,
