@@ -43,6 +43,7 @@
 		A345AC49188005B50067632E /* CalculatorParserSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CalculatorParserSpec.cpp; sourceTree = "<group>"; };
 		A345AC4C188005F20067632E /* CharacterSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterSet.h; sourceTree = "<group>"; };
 		A345AC4D188008080067632E /* ContainerMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerMatcher.h; sourceTree = "<group>"; };
+		A345AC4E188022DC0067632E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		A3CE2F9F187C702F00195E3C /* CalculatorParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorParser.h; sourceTree = "<group>"; };
 		A3CE2FA0187C721F00195E3C /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
 		A3CE2FA1187CB0F500195E3C /* EqualMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EqualMatcher.h; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 		A3176F7A1879E9B70092DC27 = {
 			isa = PBXGroup;
 			children = (
+				A345AC4E188022DC0067632E /* README.md */,
 				A3176F98187B34170092DC27 /* demo */,
 				A3176F90187AD7D50092DC27 /* include */,
 				A3CE2FA8187DEADC00195E3C /* specs */,

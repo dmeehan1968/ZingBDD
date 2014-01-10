@@ -1,4 +1,26 @@
+# About
+
+ZingBDD is a minimal BDD framework for C++ inspired by [RSpec](http://rspec.info).
+
+## Features
+
+* Simple code constructs to keep your specs (tests) clean and easy to read.
+* Type specific matchers so you can only apply appropriate expectations on your test objects.
+
+Please note: This is an early alpha version.  I'd encourage you to give it a try and provide feedback on problems that you encounter.  Use Github Issues to report problems, feedback and ask questions.
+
+## Requirements
+
+1. You'll need a C++11 compliant compiler to use ZingBDD, as it uses language constructs only available there.
+2. There is an Xcode 5 project included that builds the demos.
+
 # Getting Started
+
+## Installation
+
+ZingBDD is implemented as header only, so no libraries to build.  Just make the include folder available to your project and include `ZingBDD.h` in your specification modules (these are the unit tests).
+
+## The Basic Setup
 
 You'll need a few things to get going with *ZingBDD*.
 
@@ -6,7 +28,7 @@ You'll need a few things to get going with *ZingBDD*.
 2.	A *reporter* and *runner* that invokes the unit tests.
 3.	Test *specifications* that describe what the system being tested should do.
 
-## Reporter and Runner
+## Test Runner and Reporter
 
 In `main.cpp` (or anywhere else if you have a more complicated test setup), create a *reporter* instance and ask the test *runner* to run with it.
 
