@@ -1,18 +1,18 @@
 //
 //  Specification.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 07/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_Specification_h
-#define RSpeCpp_Specification_h
+#ifndef ZingBDD_Specification_h
+#define ZingBDD_Specification_h
 
 #include "ExampleGroup.h"
 #include "Runner.h"
 
-namespace RSpeCpp {
+namespace ZingBDD {
 	
 	class Specification : public ExampleGroup {
 		

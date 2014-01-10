@@ -1,13 +1,13 @@
 //
 //  Scanner.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 07/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_Scanner_h
-#define RSpeCpp_Scanner_h
+#ifndef ZingBDD_Scanner_h
+#define ZingBDD_Scanner_h
 
 #include <set>
 

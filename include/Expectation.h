@@ -1,13 +1,13 @@
 //
 //  Expectation.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 06/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_Expectation_h
-#define RSpeCpp_Expectation_h
+#ifndef ZingBDD_Expectation_h
+#define ZingBDD_Expectation_h
 
 #include "EqualMatcher.h"
 #include "NilMatcher.h"
@@ -15,7 +15,7 @@
 #include "BooleanMatcher.h"
 #include "Verifier.h"
 
-namespace RSpeCpp {
+namespace ZingBDD {
 		
 	template <typename T>
 	class Expectation {

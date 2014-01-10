@@ -1,15 +1,15 @@
 //
 //  Matcher.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 08/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_Matcher_h
-#define RSpeCpp_Matcher_h
+#ifndef ZingBDD_Matcher_h
+#define ZingBDD_Matcher_h
 
-namespace RSpeCpp {
+namespace ZingBDD {
     
     template <typename T>
     class Matcher {

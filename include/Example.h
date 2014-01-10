@@ -1,18 +1,18 @@
 //
 //  Example.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 06/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_Example_h
-#define RSpeCpp_Example_h
+#ifndef ZingBDD_Example_h
+#define ZingBDD_Example_h
 
 #include "Reporter.h"
 #include "Expectation.h"
 
-namespace RSpeCpp {
+namespace ZingBDD {
 
 	class Example {
 		

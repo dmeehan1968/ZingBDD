@@ -1,17 +1,17 @@
 //
 //  AfterEach.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 09/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_AfterEach_h
-#define RSpeCpp_AfterEach_h
+#ifndef ZingBDD_AfterEach_h
+#define ZingBDD_AfterEach_h
 
 #include "Each.h"
 
-namespace RSpeCpp {
+namespace ZingBDD {
 	
 	class AfterEach : public Each {
 		

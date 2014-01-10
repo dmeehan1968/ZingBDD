@@ -1,17 +1,17 @@
 //
 //  NilMatcher.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 07/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_NilMatcher_h
-#define RSpeCpp_NilMatcher_h
+#ifndef ZingBDD_NilMatcher_h
+#define ZingBDD_NilMatcher_h
 
 #include "Matcher.h"
 
-namespace RSpeCpp {
+namespace ZingBDD {
 
     template <typename T>
 	class NilMatcher : public Matcher<T> {

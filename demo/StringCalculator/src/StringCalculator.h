@@ -1,13 +1,13 @@
 //
 //  StringCalculator.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 06/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_StringCalculator_h
-#define RSpeCpp_StringCalculator_h
+#ifndef ZingBDD_StringCalculator_h
+#define ZingBDD_StringCalculator_h
 
 #include "CalculatorParser.h"
 

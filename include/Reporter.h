@@ -1,18 +1,18 @@
 //
 //  Reporter.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 07/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_Reporter_h
-#define RSpeCpp_Reporter_h
+#ifndef ZingBDD_Reporter_h
+#define ZingBDD_Reporter_h
 
 #include <iostream>
 #include <vector>
 
-namespace RSpeCpp {
+namespace ZingBDD {
 	
 	class Failure {
 		

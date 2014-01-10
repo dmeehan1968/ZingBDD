@@ -1,17 +1,17 @@
 //
 //  BeforeEach.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 07/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_BeforeEach_h
-#define RSpeCpp_BeforeEach_h
+#ifndef ZingBDD_BeforeEach_h
+#define ZingBDD_BeforeEach_h
 
 #include "Each.h"
 
-namespace RSpeCpp {
+namespace ZingBDD {
 	
 	class BeforeEach : public Each {
 		

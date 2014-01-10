@@ -1,13 +1,13 @@
 //
 //  StringParser.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 07/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_StringParser_h
-#define RSpeCpp_StringParser_h
+#ifndef ZingBDD_StringParser_h
+#define ZingBDD_StringParser_h
 
 #include <set>
 

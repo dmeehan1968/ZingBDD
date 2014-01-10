@@ -1,18 +1,18 @@
 //
 //  Runner.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 06/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_Runner_h
-#define RSpeCpp_Runner_h
+#ifndef ZingBDD_Runner_h
+#define ZingBDD_Runner_h
 
 #include "Example.h"
 #include "Reporter.h"
 
-namespace RSpeCpp {
+namespace ZingBDD {
 	
 	class Runner {
 		

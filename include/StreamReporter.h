@@ -1,17 +1,17 @@
 //
 //  StreamReporter.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 07/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_StreamReporter_h
-#define RSpeCpp_StreamReporter_h
+#ifndef ZingBDD_StreamReporter_h
+#define ZingBDD_StreamReporter_h
 
 #include "Reporter.h"
 
-namespace RSpeCpp {
+namespace ZingBDD {
 	
 	class StreamReporter : public Reporter {
 		

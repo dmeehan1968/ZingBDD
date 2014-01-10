@@ -1,15 +1,15 @@
 //
 //  Each.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 09/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_Each_h
-#define RSpeCpp_Each_h
+#ifndef ZingBDD_Each_h
+#define ZingBDD_Each_h
 
-namespace RSpeCpp {
+namespace ZingBDD {
     
 	class Each {
 		

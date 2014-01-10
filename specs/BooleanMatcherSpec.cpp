@@ -1,6 +1,6 @@
 //
 //  BooleanMatcherSpec.cpp
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 08/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 05/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
@@ -13,8 +13,8 @@
 int main(int argc, const char * argv[])
 {
 
-	RSpeCpp::StreamReporter reporter(std::cout);
-	RSpeCpp::Runner::getInstance().run(reporter);
+	ZingBDD::StreamReporter reporter(std::cout);
+	ZingBDD::Runner::getInstance().run(reporter);
 	
     return 0;
 }

@@ -1,20 +1,20 @@
 //
 //  ExampleGroup.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 06/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_ExampleGroup_h
-#define RSpeCpp_ExampleGroup_h
+#ifndef ZingBDD_ExampleGroup_h
+#define ZingBDD_ExampleGroup_h
 
 #include "Example.h"
 #include "Reporter.h"
 #include "BeforeEach.h"
 #include "AfterEach.h"
 
-namespace RSpeCpp {
+namespace ZingBDD {
 	
 	class ExampleGroup : public Example {
 		

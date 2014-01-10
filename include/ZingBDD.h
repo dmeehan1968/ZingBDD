@@ -1,13 +1,13 @@
 //
 //  ZingBDD.h
-//  RSpeCpp
+//  ZingBDD
 //
 //  Created by Dave Meehan on 09/01/2014.
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#ifndef RSpeCpp_ZingBDD_h
-#define RSpeCpp_ZingBDD_h
+#ifndef ZingBDD_ZingBDD_h
+#define ZingBDD_ZingBDD_h
 
 #include "Specification.h"
 #include "Runner.h"
