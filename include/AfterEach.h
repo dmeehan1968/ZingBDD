@@ -17,7 +17,7 @@ namespace ZingBDD {
 		
 	public:
         
-        using Each::Each;
+        AfterEach(block_type block) : Each(block) {}
         
     };
 	
