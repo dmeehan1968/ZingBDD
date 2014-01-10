@@ -32,17 +32,18 @@ You'll need a few things to get going with *ZingBDD*.
 
 In `main.cpp` (or anywhere else if you have a more complicated test setup), create a *reporter* instance and ask the test *runner* to run with it.
 
-	#include <iostream>
-	#include "ZingBDD.h"
+```cpp
+#include <iostream>
+#include "ZingBDD.h"
 	
-	int main(int argc, const char *argv[]) {
+int main(int argc, const char *argv[]) {
 	
-		CppSpec::StreamReporter reporter(std::cout);
-		CppSpec::Runner::getInstance().run(reporter);
+	ZingBDD::StreamReporter reporter(std::cout);
+	ZingBDD::Runner::getInstance().run(reporter);
 	
-		return 0;
-
-	}
+	return 0;
+}
+```
 
 ## Specifications
 
