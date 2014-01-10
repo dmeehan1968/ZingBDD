@@ -31,7 +31,28 @@ namespace ZingBDD {
         bool _logical;
         
     };
-    
+
+    template <typename T>
+    class Matcher<T *> {
+        
+    public:
+        Matcher( const T *actual, bool logical ) : _actual(actual), _logical(logical) {}
+        
+        const T &actual() const {
+            return *_actual;
+        }
+        
+        const bool logical() const {
+            return _logical;
+        }
+        
+    private:
+        
+        const T *_actual;
+        bool _logical;
+        
+    };
+
 }
 
 #endif

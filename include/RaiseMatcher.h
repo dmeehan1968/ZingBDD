@@ -18,7 +18,8 @@ namespace ZingBDD {
     template <typename T>
     class RaiseMatcher : public Matcher<T> {
     public:
-        using Matcher<T>::Matcher;
+        RaiseMatcher( const T& actual, bool logical ) : Matcher<T>(actual, logical) {}
+
     };
     
     template <>
@@ -26,9 +27,7 @@ namespace ZingBDD {
         
     public:
         using T = std::function<void(void)>;
-        using Matcher<T>::Matcher;
-        using Matcher<T>::actual;
-        using Matcher<T>::logical;
+        RaiseMatcher( const T& actual, bool logical ) : Matcher<T>(actual, logical) {}
 
         template <class T = std::exception>
         void raise(std::string what = "") {

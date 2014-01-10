@@ -19,13 +19,11 @@ namespace ZingBDD {
 	class EqualMatcher : public Matcher<T> {
 		
 	public:
-        using Matcher<T>::Matcher;
-        using Matcher<T>::actual;
-        using Matcher<T>::logical;
+        EqualMatcher( const T& actual, bool logical ) : Matcher<T>(actual, logical) {}
         
 		void equal( const T& expected ) {
 			
-			if ((actual() != expected) == logical()) {
+			if ((Matcher<T>::actual() != expected) == Matcher<T>::logical()) {
 				
 				throw std::runtime_error(error(expected));
 				
@@ -34,8 +32,8 @@ namespace ZingBDD {
 		
 		std::string error(const T& expected) {
 			std::ostringstream ss;
-			if (logical()) {
-				ss << "expected '" << expected << "', got '" << actual() << "'";
+			if (Matcher<T>::logical()) {
+				ss << "expected '" << expected << "', got '" << Matcher<T>::actual() << "'";
 			} else {
 				ss << "should not be equal to '" << expected << "'";
 			}

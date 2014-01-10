@@ -17,13 +17,11 @@ namespace ZingBDD {
     class ContainerMatcher : public Matcher<T> {
     
     public:
-        using Matcher<T>::Matcher;
-        using Matcher<T>::actual;
-        using Matcher<T>::logical;
+        ContainerMatcher( const T& actual, bool logical ) : Matcher<T>(actual, logical) {}
 
         void beEmpty() {
         
-            if (actual().size() > 0) {
+            if (Matcher<T>::actual().size() > 0) {
                 
                 throw std::runtime_error("should be empty");
                 
@@ -34,10 +32,10 @@ namespace ZingBDD {
         template <typename S>
         void haveCountOf( const S count ) {
         
-            if (actual().size() != count) {
+            if (Matcher<T>::actual().size() != count) {
                 
                 std::ostringstream os;
-                os << "expected" << count << ", got " << actual().size();
+                os << "expected" << count << ", got " << Matcher<T>::actual().size();
                 
                 throw std::runtime_error(os.str());
                 
@@ -47,7 +45,7 @@ namespace ZingBDD {
         template <typename V>
         void contain( const V &value ) {
          
-            if (std::find(actual().begin(), actual().end(), value) == actual().end()) {
+            if (std::find(Matcher<T>::actual().begin(), Matcher<T>::actual().end(), value) == Matcher<T>::actual().end()) {
                 
                 std::ostringstream os;
                 os << "value " << value << " not found in container";
@@ -64,7 +62,7 @@ namespace ZingBDD {
             
             while (iter != end) {
                 
-                if (std::find(actual().begin(), actual().end(), *iter) == actual().end()) {
+                if (std::find(Matcher<T>::actual().begin(), Matcher<T>::actual().end(), *iter) == Matcher<T>::actual().end()) {
                     
                     missing.push_back(*iter);
                     

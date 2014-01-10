@@ -15,17 +15,16 @@ namespace ZingBDD {
 
     template <typename T> class BooleanMatcher : public Matcher<T> {
     public:
-        using Matcher<T>::Matcher;
+        BooleanMatcher( const T& actual, bool logical ) : Matcher<T>(actual, logical) {}
     };
     
     template <>
     class BooleanMatcher<bool> : public Matcher<bool> {
         
     public:
-        using Matcher<bool>::Matcher;
-        using Matcher<bool>::actual;
-        using Matcher<bool>::logical;
-        
+
+        BooleanMatcher( const bool& actual, bool logical ) : Matcher<bool>(actual, logical) {}
+
         void beTrue() {
             
             if ((actual() != true) == logical()) {

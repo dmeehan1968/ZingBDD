@@ -16,20 +16,18 @@ namespace ZingBDD {
     template <typename T>
 	class NilMatcher : public Matcher<T> {
     public:
-        using Matcher<T>::Matcher;
+        NilMatcher( const T& actual, bool logical ) : Matcher<T>(actual, logical) {}
     };
     
     template <typename T>
     class NilMatcher<T *> : public Matcher<T *> {
 		
 	public:
-        using Matcher<T *>::Matcher;
-        using Matcher<T *>::actual;
-        using Matcher<T *>::logical;
+        NilMatcher( const T* actual, bool logical ) : Matcher<T *>(actual, logical) {}
 		
 		void beNil() {
 			
-			if ((actual() != nullptr) == logical()) {
+			if ((&Matcher<T *>::actual() != nullptr) == Matcher<T *>::logical()) {
 				
 				throw std::runtime_error(error());
 			}
@@ -38,7 +36,7 @@ namespace ZingBDD {
 		
 		void beNonNil() {
 			
-			if ((actual() == nullptr) == logical()) {
+			if ((Matcher<T *>::actual() == nullptr) == Matcher<T *>::logical()) {
 				
 				throw std::runtime_error(error());
 			}
@@ -46,7 +44,7 @@ namespace ZingBDD {
 		}
 		
 		std::string error() {
-			if (logical()) {
+			if (Matcher<T *>::logical()) {
 				return "expected Nil";
 			} else {
 				return "expected not to be Nil";
