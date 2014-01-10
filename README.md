@@ -51,20 +51,24 @@ A *specification* is a unit of code that describes tests that the system under t
 
 Create test specifications in `.cpp` files so that they are automatically included in the build.  Make sure these are included in the build target.
 
-	#include "ZingBDD.h"
-	
-	describe( SubjectClass, {
-	
-	});
+```cpp
+#include "ZingBDD.h"
+
+describe( SubjectClass, {
+
+});
+```
 
 The `describe` block is the principle container.
 You can include one or more specifications in each spec module.  Note that the supplied *SubjectClass* does not need to match the name of a class being tested, but logically it helps to do so when interpreting results.
 
 ## Example
 
-	it("description", {
-	
-	});
+```cpp
+it("description", {
+
+});
+```
 
 Examples are the individual tests that you want to perform.  Each example contains one or more *expectations* that are evaluated.  It is best to try and have one expectation per example, and describe the example with what you expect the outcome to be.
 
@@ -72,9 +76,11 @@ A failing expectation will prevent further code within the same example from run
 
 ## Example Group
 
-	context("description", {
-	
-	});
+```cpp
+context("description", {
+
+});
+```
 
 *Example Groups* allow you to organise tests around functional areas within a specification.
 
@@ -82,50 +88,58 @@ A failing expectation will prevent further code within the same example from run
 
 Here is a complete specification to illustrate the structure.  First, let's create a specification to describe what the software should do.
 
-	#include "CppSpec.h"
-	#include "HelloWorld.h"
-	
-	describe( HelloWorld, {
-	
-		it("outputs message", {
-		
-			HelloWorld sut;
-			
-			expect( sut.hello() ).should.equal( "Hello World" );
-			
-		});
-		
-	});
+```cpp
+#include "CppSpec.h"
+#include "HelloWorld.h"
+
+describe( HelloWorld, {
+
+    it("outputs message", {
+    
+        HelloWorld sut;
+        
+        expect( sut.hello() ).should.equal( "Hello World" );
+        
+    });
+    
+});
+```
 
 We also need a source module for the `HelloWorld` class, called `HelloWorld.h`.
 
-	class HelloWorld {
-	
-	public:
-	
-		std::string hello() {
-		
-			return "Hello World!";
-			
-		}
-	
-	};
+```cpp
+class HelloWorld {
+
+public:
+
+    std::string hello() {
+    
+        return "Hello World!";
+        
+    }
+
+};
+```
 
 That should be sufficient to build and run.  You should see output similar to:
 
-	FAIL: HelloWorld > outputs message.
-	      ERROR >> expected 'Hello World!', got 'Hello World'
-	-----
-	Failed: 1 of 1 (0 passed)
+```
+FAIL: HelloWorld > outputs message.
+      ERROR >> expected 'Hello World!', got 'Hello World'
+-----
+Failed: 1 of 1 (0 passed)
 
-	HelloWorld > outputs message.
-	      << ERROR >> expected 'Hello World!', got 'Hello World'
+HelloWorld > outputs message.
+      << ERROR >> expected 'Hello World!', got 'Hello World'
+```
 
 Oops!  I was rather hoping that would work, but look, I made a typo by missing the exclamation mark from the expected message.  I'll fix that, then re-run the test:
 
-	  OK: HelloWorld > outputs message
-	-----
-	PASS: 1 tests
+```
+  OK: HelloWorld > outputs message
+-----
+PASS: 1 tests
+```
 
 Cool!
 
@@ -133,18 +147,24 @@ Cool!
 
 Test *expectations* are constructed from a chain similar to:
 
-	expect( *subject* ).*verifier*.*matcher*
+```
+expect( *subject* ).*verifier*.*matcher*
+```
 
 So in our Hello World example, *subject* was a variable or function result, *verifier* was *should* and *matcher* was *equal()*.  You can split the statement over more than one line if it helps with readability, e.g.:
 
-	expect( sut.hello() )
-		.should
-		.equal( "Hello World" );
+```
+expect( sut.hello() )
+    .should
+    .equal( "Hello World" );
+```
 
 ## Verifiers
 
-	.should
-	.shouldNot
+```
+.should
+.shouldNot
+```
 
 *Verifiers* determine whether the outcome should be expected or unexpected.
 
@@ -154,55 +174,86 @@ So in our Hello World example, *subject* was a variable or function result, *ver
 
 ### Equivalence
 
-	expect( subject ).should.equal( value );
+```cpp
+expect( subject ).should.equal( value );
+```
 
 *subject* should support the left shift operator (<<) to a `std::ostream` so that it's value can be printed on failure.  If the subject doesn't support ostream output, you will need to make the comparison yourself and use a Boolean test. E.g.:
 
-	expect ( aValue == otherValue ).should.beTrue();
+```cpp
+expect ( aValue == otherValue ).should.beTrue();
+```
 
 ### Boolean
 
-	expect( subject ).should.beTrue();
-	expect( subject ).should.beFalse();
-	expect( subject ).should.beNil();
+```cpp
+expect( subject ).should.beTrue();
+expect( subject ).should.beFalse();
+expect( subject ).should.beNil();
+```
 
 *subject* must be a Boolean value, not some other type that might be convertible to Boolean. Cast if necessary.
 
 ### Comparison
 
-	expect( subject ).should.beLessThan( value );
-	expect( subject ).should.beLessThanOrEqualTo( value );
-	expect( subject ).should.beGreaterThan( value );
-	expect( subject ).should.beGreaterThanOrEqualTo( value );
-	expect( subject ).should.beWithin( delta, value );
+    NB: Pending Implementation
+
+```cpp
+expect( subject ).should.beLessThan( value );
+expect( subject ).should.beLessThanOrEqualTo( value );
+expect( subject ).should.beGreaterThan( value );
+expect( subject ).should.beGreaterThanOrEqualTo( value );
+expect( subject ).should.beWithin( delta, value );
+```
 
 ### Collections
 
-	expect( subject ).should.beEmpty();
-	expect( subject ).should.contain( value | values );
-	expect( subject ).should.haveCountOf( n );
-	expect( subject ).should.haveCountOfAtLeast( n );
-	expect( subject ).should.haveCountOfAtMost( n );
+```cpp
+expect( subject ).should.beEmpty();
+expect( subject ).should.contain( value | values );
+expect( subject ).should.haveCountOf( n );
+```
+
+NB: Pending implementation
+
+```cpp
+expect( subject ).should.haveCountOfAtLeast( n );
+expect( subject ).should.haveCountOfAtMost( n );
+```
 
 ### Substring Matching
 
-	expect( subject ).should.containString( value, options );
-	expect( subject ).should.beginWithString( value, options );
-	expect( subject ).should.endWithString( value, options );
+NB: Pending implementation
+
+```cpp
+expect( subject ).should.containString( value, options );
+expect( subject ).should.beginWithString( value, options );
+expect( subject ).should.endWithString( value, options );
+```
 
 ### Regular Expressions
 
-	expect( subject ).should.match( regexp, options );
+NB: Pending implementation
+
+```cpp
+expect( subject ).should.match( regexp, options );
+```
 
 ### Count Changes
 
-	expect( theBlock( {subject} ) )
-		.should.change( [&]{ return object.value; }, delta);
+NB: Pending implementation
+
+```cpp
+expect( theBlock( {subject} ) )
+    .should.change( [&]{ return object.value; }, delta);
+```
 
 ### Exceptions
 
-	expect( theBlock({ /* code */ }) )
-		.should.raise<std::runtime_error>("what");
+```cpp
+expect( theBlock({ /* code */ }) )
+    .should.raise<std::runtime_error>("what");
+```
 
 ## Setup and Tear Down
 
@@ -210,69 +261,74 @@ Each `describe`, `context` or `it` can contain arbitrary code to establish the s
 
 Let's refactor our Hello World specification to take advantage of that.
 
-	#include "ZingBDD.h"
-	#include "HelloWorld.h"
-	
-	describe( HelloWorld, {
-	
-		HelloWorld *sut;
-		
-		beforeEach({
-		
-			sut = new HelloWorld;
-			
-		});
-		
-		afterEach({
-		
-			delete sut;
-			
-		});
-		
-		it("outputs message", {
-			
-			expect( sut->hello() ).should.equal( "Hello World" );
-			
-		});
-		
-	});
+```cpp
+#include "ZingBDD.h"
+#include "HelloWorld.h"
+
+describe( HelloWorld, {
+
+    HelloWorld *sut;
+    
+    beforeEach({
+    
+        sut = new HelloWorld;
+        
+    });
+    
+    afterEach({
+    
+        delete sut;
+        
+    });
+    
+    it("outputs message", {
+        
+        expect( sut->hello() ).should.equal( "Hello World" );
+        
+    });
+    
+});
+```
 
 For this simple example it's a bit more long-winded, but hopefully you'll see how you can apply that to more complicated scenarios.
 
 If you have nested contexts, ALL `beforeEach` blocks are invoked prior to each and every `it` block that they contain, and those further down the heirarchy, and likewise of `afterEach` blocks. E.g.
 
-	describe("example", {
-	
-		beforeEach("A", {
-		
-			std::cout << "before A" << std::endl;
-		
-		});
-		
-		context("context A", {
-		
-			beforeEach("B", {
-			
-				std::cout << "B" << std::endl;
-			
-			});
-			
-			it("example B", {
-			
-				// ...
-			
-			});
-			
-			it("example C", {
-			
-				// ...
-			
-			});
-		});
-	});
+```cpp
+describe("example", {
+
+    beforeEach("A", {
+    
+        std::cout << "before A" << std::endl;
+    
+    });
+    
+    context("context A", {
+    
+        beforeEach("B", {
+        
+            std::cout << "B" << std::endl;
+        
+        });
+        
+        it("example B", {
+        
+            // ...
+        
+        });
+        
+        it("example C", {
+        
+            // ...
+        
+        });
+    });
+});
+```
 
 will produce...
 
+```
 	A
 	B
 	  OK: example > context A > example B
@@ -281,6 +337,7 @@ will produce...
 	  OK: example > context A > example C
 	-----
 	PASS: 2 tests
+```
 
 If you prefer a RAIIapproach, then you can use a smart pointer in the `beforeEach` and do away with the `afterEach` knowing that the smart pointer destruction takes care of releasing the memory allocation.
 
