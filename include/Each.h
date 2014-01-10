@@ -9,6 +9,8 @@
 #ifndef ZingBDD_Each_h
 #define ZingBDD_Each_h
 
+#include <utility>
+
 namespace ZingBDD {
     
 	class Each {

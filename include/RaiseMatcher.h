@@ -11,6 +11,8 @@
 
 #include "Matcher.h"
 
+#include <functional>
+
 namespace ZingBDD {
     
     template <typename T>
