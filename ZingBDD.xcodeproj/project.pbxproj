@@ -52,6 +52,7 @@
 		A373205718802EE4001D57B0 /* Miscellaneous.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Miscellaneous.md; sourceTree = "<group>"; };
 		A3A050E3188085BB00E7A4EE /* ComparisonMatcherSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComparisonMatcherSpec.cpp; sourceTree = "<group>"; };
 		A3A050E61880929700E7A4EE /* ComparisonMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComparisonMatcher.h; sourceTree = "<group>"; };
+		A3A050E71881639A00E7A4EE /* Caveats.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Caveats.md; sourceTree = "<group>"; };
 		A3CE2F9F187C702F00195E3C /* CalculatorParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorParser.h; sourceTree = "<group>"; };
 		A3CE2FA0187C721F00195E3C /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
 		A3CE2FA1187CB0F500195E3C /* EqualMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EqualMatcher.h; sourceTree = "<group>"; };
@@ -183,6 +184,7 @@
 				A373205518802E67001D57B0 /* Home.md */,
 				A373205618802EA7001D57B0 /* Expectations.md */,
 				A373205718802EE4001D57B0 /* Miscellaneous.md */,
+				A3A050E71881639A00E7A4EE /* Caveats.md */,
 			);
 			name = Wiki;
 			path = ../ZingBDD.wiki;

@@ -169,4 +169,83 @@ describe(ComparisonMatcher, {
         });
         
     });
+    
+    context("beLessThanOrEqualTo", {
+       
+        context("an integer subject less than expected", {
+            
+            it("should pass", {
+                
+                expect(1).should.beLessThanOrEqualTo(2);
+                
+            });
+            
+        });
+        
+        context("an interger subject not less than expected", {
+            
+            it("should throw", {
+                
+                try {
+                    expect(1).shouldNot.beLessThanOrEqualTo(2);
+                } catch (...) {
+                    return;
+                }
+                
+                throw std::runtime_error("exception not received");
+                
+            });
+            
+        });
+        
+        context("an integer subject greater than expected", {
+            
+            it("should throw", {
+                
+                try {
+                    expect(2).should.beLessThanOrEqualTo(1);
+                } catch (...) {
+                    return;
+                }
+                
+                throw std::runtime_error("exception not received");
+                
+            });
+        });
+        
+        context("an integer subject not greater than expected", {
+            
+            it("should pass", {
+                
+                expect(2).shouldNot.beLessThanOrEqualTo(1);
+                
+            });
+            
+        });
+        
+        context("an integer subject equal to expected", {
+            
+            it("should pass", {
+                
+                expect(1).should.beLessThanOrEqualTo(1);
+                
+            });
+            
+        });
+        
+        context("an integer subject not equal to expected", {
+            
+            it("should throw", {
+                
+                try {
+                    expect(1).shouldNot.beLessThanOrEqualTo(1);
+                } catch (...) {
+                    return;
+                }
+                
+                throw std::runtime_error("exception not received");
+                
+            });
+        });
+    });
 });

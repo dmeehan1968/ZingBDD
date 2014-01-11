@@ -42,6 +42,20 @@ namespace ZingBDD {
                 
             }
         }
+        
+        void beLessThanOrEqualTo( const T &expected ) {
+            
+            if ((this->actual() > expected) == this->logical()) {
+                
+                std::ostringstream os;
+                
+                os << "expected " << this->actual() << " to be less then or equal to " << expected;
+                
+                throw std::runtime_error(os.str());
+                
+            }
+            
+        }
     };
     
 }
