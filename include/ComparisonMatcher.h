@@ -9,8 +9,10 @@
 #ifndef ZingBDD_ComparisonMatcher_h
 #define ZingBDD_ComparisonMatcher_h
 
+#include "BeWithinDelta.h"
+
 namespace ZingBDD {
-    
+
     template <typename T>
     class ComparisonMatcher : public Matcher<T> {
         
@@ -68,6 +70,12 @@ namespace ZingBDD {
                 throw std::runtime_error(os.str());
                 
             }
+        }
+        
+        BeWithinDelta<T> beWithin( const T& delta ) {
+            
+            return BeWithinDelta<T>( this->actual(), delta, this->logical() );
+            
         }
     };
     

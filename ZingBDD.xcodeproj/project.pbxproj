@@ -53,6 +53,7 @@
 		A3A050E3188085BB00E7A4EE /* ComparisonMatcherSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComparisonMatcherSpec.cpp; sourceTree = "<group>"; };
 		A3A050E61880929700E7A4EE /* ComparisonMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComparisonMatcher.h; sourceTree = "<group>"; };
 		A3A050E71881639A00E7A4EE /* Caveats.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Caveats.md; sourceTree = "<group>"; };
+		A3A07C4718817994002C0633 /* BeWithinDelta.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeWithinDelta.h; sourceTree = "<group>"; };
 		A3CE2F9F187C702F00195E3C /* CalculatorParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorParser.h; sourceTree = "<group>"; };
 		A3CE2FA0187C721F00195E3C /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
 		A3CE2FA1187CB0F500195E3C /* EqualMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EqualMatcher.h; sourceTree = "<group>"; };
@@ -120,6 +121,7 @@
 				A3CE2FA3187CB19600195E3C /* RaiseMatcher.h */,
 				A345AC4D188008080067632E /* ContainerMatcher.h */,
 				A3A050E61880929700E7A4EE /* ComparisonMatcher.h */,
+				A3A07C4718817994002C0633 /* BeWithinDelta.h */,
 				A3CE2FA2187CB12500195E3C /* NilMatcher.h */,
 				A3CE2FA1187CB0F500195E3C /* EqualMatcher.h */,
 				A3CE2FA6187DD9A900195E3C /* Matcher.h */,
