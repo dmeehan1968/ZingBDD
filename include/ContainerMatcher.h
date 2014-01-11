@@ -21,21 +21,67 @@ namespace ZingBDD {
 
         void beEmpty() {
         
-            if (this->actual().size() > 0) {
+            if ((this->actual().size() > 0) == this->logical()) {
                 
-                throw std::runtime_error("should be empty");
+                std::ostringstream os;
+                
+                os << "expected to be " << (this->logical() ? "" : "NOT ") << "empty";
+                
+                if (this->logical()) {
+                    os << " but has " << this->actual().size() << " items";
+                }
+                
+                throw std::runtime_error(os.str());
                 
             }
             
         }
         
-        template <typename S>
-        void haveCountOf( const S count ) {
+        void haveCountOf( const size_t count ) {
         
-            if (this->actual().size() != count) {
+            if ((this->actual().size() != count) == this->logical()) {
                 
                 std::ostringstream os;
-                os << "expected" << count << ", got " << this->actual().size();
+                os  << "expected to " << (this->logical() ? "" : "NOT ")
+                    << "have count of " << count;
+                
+                if (this->logical()) {
+                    os << ", got " << this->actual().size();
+                }
+                
+                throw std::runtime_error(os.str());
+                
+            }
+        }
+        
+        void haveCountOfAtLeast( const size_t count ) {
+            
+            if ((this->actual().size() < count) == this->logical()) {
+                
+                std::ostringstream os;
+                os  << "expected to " << (this->logical() ? "" : "NOT ")
+                    << "have at least " << count;
+                
+                if (!this->logical()) {
+                    os << ", got " << this->actual().size();
+                }
+                
+                throw std::runtime_error(os.str());
+                
+            }
+        }
+        
+        void haveCountOfAtMost( const size_t count ) {
+            
+            if ((this->actual().size() > count) == this->logical()) {
+                
+                std::ostringstream os;
+                os  << "expected to " << (this->logical() ? "" : "NOT ")
+                    << "have at most " << count;
+                
+                if (this->logical()) {
+                    os << ", got " << this->actual().size();
+                }
                 
                 throw std::runtime_error(os.str());
                 
@@ -45,10 +91,13 @@ namespace ZingBDD {
         template <typename V>
         void contain( const V &value ) {
          
-            if (std::find(this->actual().begin(), this->actual().end(), value) == this->actual().end()) {
+            if ((std::find(this->actual().begin(), this->actual().end(), value) == this->actual().end()) == this->logical()) {
                 
                 std::ostringstream os;
-                os << "value " << value << " not found in container";
+                os << "value " << value << " "
+                    << (!this->logical() ? "" : "NOT ")
+                    << "found";
+                
                 throw std::runtime_error(os.str());
             }
 
@@ -78,10 +127,16 @@ namespace ZingBDD {
             
             std::ostringstream os;
             
-            if (begin != end) {
+            if (begin == end) {
+
+                os << "nothing expected";
+                
+            } else {
+                
                 os << "expected ";
                 std::copy(begin, end-1, std::ostream_iterator<typename T::value_type>(os, ", "));
                 os << *(end-1);
+                
             }
             
             os << " but was missing ";
