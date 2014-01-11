@@ -25,7 +25,9 @@ namespace ZingBDD {
                 
                 std::ostringstream os;
                 
-                os << "expected " << this->actual() << " to be less than " << expected;
+                os  << "expected " << this->actual()
+                    << " to " << (this->logical() ? "" : "NOT ")
+                    << "be less than " << expected;
                 
                 throw std::runtime_error(os.str());
                 
@@ -38,7 +40,9 @@ namespace ZingBDD {
                 
                 std::ostringstream os;
                 
-                os << "expected " << this->actual() << " to be greater than " << expected;
+                os  << "expected " << this->actual()
+                    << " to " << (this->logical() ? "" : "NOT ")
+                    << "be greater than " << expected;
                 
                 throw std::runtime_error(os.str());
                 
@@ -51,7 +55,9 @@ namespace ZingBDD {
                 
                 std::ostringstream os;
                 
-                os << "expected " << this->actual() << " to be less then or equal to " << expected;
+                os  << "expected " << this->actual()
+                    << " to " << (this->logical() ? "" : "NOT ")
+                    << "be less than or equal to " << expected;
                 
                 throw std::runtime_error(os.str());
                 
@@ -65,7 +71,9 @@ namespace ZingBDD {
                 
                 std::ostringstream os;
                 
-                os << "expected " << this->actual() << " to be greater than or equal to " << expected;
+                os  << "expected " << this->actual()
+                    << " to " << (this->logical() ? "" : "NOT ")
+                    << "be greater than or equal to " << expected;
                 
                 throw std::runtime_error(os.str());
                 

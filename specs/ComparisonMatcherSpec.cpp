@@ -14,106 +14,91 @@ describe(ComparisonMatcher, {
         
         context("an integer subject is less than expected", {
             
-            it("should pass", {
+            it("should passes", {
                 
                 expect(1).should.beLessThan(2);
                 
             });
             
-        });
-        
-        context("an integer subject is not less than expected", {
-            
-            it("should throw", {
+            it("shouldNot fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(1).shouldNot.beLessThan(2);
-                } catch (...) {
-                    return;
-                }
-                
-                throw std::runtime_error("execption not received");
+                    
+                }))
+                .should
+                .raise("expected 1 to NOT be less than 2");
                 
             });
-            
             
         });
         
         context("an integer subject is greater than expected", {
-            
-            it("should throw", {
+        
+            it("should fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(2).should.beLessThan(1);
-                } catch (...) {
-                    return;
-                }
-                
-                throw std::runtime_error("expection not received");
+                    
+                }))
+                .should
+                .raise("expected 2 to be less than 1");
                 
             });
-        });
-        
-        context("an integer subject is not greater than expected", {
             
-            it("should pass", {
+            it("shouldNot passes", {
                 
                 expect(2).shouldNot.beLessThan(1);
-                
+
             });
             
         });
         
         context("an integer subject is equal to expected", {
             
-            it("should throw", {
+            it("should fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(1).should.beLessThan(1);
-                } catch (...) {
-                    return;
-                }
-                
-                throw std::runtime_error("exception not received");
-                
+                    
+                }))
+                .should
+                .raise("expected 1 to be less than 1");
+
             });
             
-        });
-        
-        context("an integer subject is not equal to expected", {
-            
-            it("should pass", {
+            it("shouldNot passes", {
                 
                 expect(1).shouldNot.beLessThan(1);
                 
             });
             
         });
+
     });
     
     context("beGreaterThan", {
        
         context("an integer subject is greater than expected", {
             
-            it("should pass", {
+            it("should passes", {
                 
                 expect(2).should.beGreaterThan(1);
                 
             });
             
-        });
-        
-        context("an integer subject is not greater than expected", {
-            
-            it("should throw", {
+            it("shouldNot fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(2).shouldNot.beGreaterThan(1);
-                } catch (...) {
-                    return;
-                }
-                
-                throw std::runtime_error("exception not received");
+                    
+                }))
+                .should
+                .raise("expected 2 to NOT be greater than 1");
                 
             });
             
@@ -121,22 +106,19 @@ describe(ComparisonMatcher, {
         
         context("an integer subject is less then expected", {
             
-            it("should throw", {
+            it("should fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(1).should.beGreaterThan(2);
-                } catch (...) {
-                    return;
-                }
-                
-                throw std::runtime_error("expection not received");
+                    
+                }))
+                .should
+                .raise("expected 1 to be greater than 2");
+
             });
             
-        });
-        
-        context("an integer subject is not less than expected", {
-            
-            it("should pass", {
+            it("shouldNot passes", {
                 
                 expect(1).shouldNot.beGreaterThan(2);
                 
@@ -146,26 +128,24 @@ describe(ComparisonMatcher, {
         
         context("an integer subject is equal to expected", {
             
-            it("should throw", {
+            it("should fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(1).should.beGreaterThan(1);
-                } catch (...) {
-                    return;
-                }
-                
-                throw std::runtime_error("exception not received");
+                    
+                }))
+                .should
+                .raise("expected 1 to be greater than 1");
                 
             });
-        });
-        
-        context("an integer subject is not equal to expected", {
             
-            it("should pass", {
+            it("shouldNot passes", {
                 
                 expect(1).shouldNot.beGreaterThan(1);
                 
             });
+            
         });
         
     });
@@ -174,25 +154,21 @@ describe(ComparisonMatcher, {
        
         context("an integer subject less than expected", {
             
-            it("should pass", {
+            it("should passes", {
                 
                 expect(1).should.beLessThanOrEqualTo(2);
                 
             });
             
-        });
-        
-        context("an interger subject not less than expected", {
-            
-            it("should throw", {
+            it("shouldNot fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(1).shouldNot.beLessThanOrEqualTo(2);
-                } catch (...) {
-                    return;
-                }
-                
-                throw std::runtime_error("exception not received");
+                    
+                }))
+                .should
+                .raise("expected 1 to NOT be less than or equal to 2");
                 
             });
             
@@ -200,22 +176,19 @@ describe(ComparisonMatcher, {
         
         context("an integer subject greater than expected", {
             
-            it("should throw", {
+            it("should fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(2).should.beLessThanOrEqualTo(1);
-                } catch (...) {
-                    return;
-                }
-                
-                throw std::runtime_error("exception not received");
+                    
+                }))
+                .should
+                .raise("expected 2 to be less than or equal to 1");
                 
             });
-        });
-        
-        context("an integer subject not greater than expected", {
             
-            it("should pass", {
+            it("shouldNot passes", {
                 
                 expect(2).shouldNot.beLessThanOrEqualTo(1);
                 
@@ -225,105 +198,95 @@ describe(ComparisonMatcher, {
         
         context("an integer subject equal to expected", {
             
-            it("should pass", {
+            it("should passes", {
                 
                 expect(1).should.beLessThanOrEqualTo(1);
                 
             });
             
-        });
-        
-        context("an integer subject not equal to expected", {
-            
-            it("should throw", {
+            it("shouldNot fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(1).shouldNot.beLessThanOrEqualTo(1);
-                } catch (...) {
-                    return;
-                }
-                
-                throw std::runtime_error("exception not received");
+                    
+                }))
+                .should
+                .raise("expected 1 to NOT be less than or equal to 1");
                 
             });
+            
         });
+        
     });
     
     context("beGreaterThanOrEqualTo", {
        
         context("an integer subject greater than expected", {
             
-            it("should pass", {
+            it("should passes", {
                 
                 expect(2).should.beGreaterThanOrEqualTo(1);
                 
             });
-        });
-        
-        context("an integer subject not greater than expected", {
-            
-            it("should throw", {
-            
-                try {
-                    expect(2).shouldNot.beGreaterThanOrEqualTo(1);
-                } catch (...) {
-                    return;
-                }
+           
+            it("shouldNot fails", {
                 
-                std::runtime_error("exception not received");
+                expect(theBlock({
+                    
+                    expect(2).shouldNot.beGreaterThanOrEqualTo(1);
+                    
+                }))
+                .should
+                .raise("expected 2 to NOT be greater than or equal to 1");
                 
             });
             
         });
         
         context("an integer subject less than expected", {
-            
-            it("should throw", {
+        
+            it("should fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(1).should.beGreaterThanOrEqualTo(2);
-                } catch (...) {
-                    return;
-                }
-                
-                std::runtime_error("exception not received");
+                }))
+                .should
+                .raise("expected 1 to be greater than or equal to 2");
                 
             });
-        });
-        
-        context("an integer subject not less then expected", {
             
-            it("should pass", {
+            it("shouldNot passes", {
                 
                 expect(1).shouldNot.beGreaterThanOrEqualTo(2);
                 
             });
+            
         });
         
         context("an integer subject equal to expected", {
             
-            it("should pass", {
+            it("should passes", {
                 
                 expect(1).should.beGreaterThanOrEqualTo(1);
                 
             });
             
-        });
-        
-        context("an integer subject not equal to expected", {
-            
-            it ("should throw", {
+            it("shouldNot fails", {
                 
-                try {
+                expect(theBlock({
+                    
                     expect(1).shouldNot.beGreaterThanOrEqualTo(1);
-                } catch (...) {
-                    return;
-                }
-                
-                throw std::runtime_error("expection not received");
+                    
+                }))
+                .should
+                .raise("expected 1 to NOT be greater than or equal to 1");
                 
             });
+            
         });
+        
     });
     
     context("beWithin", {
