@@ -15,6 +15,7 @@
 #include "BooleanMatcher.h"
 #include "Verifier.h"
 #include "ContainerMatcher.h"
+#include "ComparisonMatcher.h"
 
 namespace ZingBDD {
 		
@@ -22,7 +23,7 @@ namespace ZingBDD {
 	class Expectation {
 		
 	public:
-		using verifier_type = Verifier<T, EqualMatcher, BooleanMatcher, NilMatcher, RaiseMatcher, ContainerMatcher>;
+		using verifier_type = Verifier<T, EqualMatcher, BooleanMatcher, NilMatcher, RaiseMatcher, ContainerMatcher, ComparisonMatcher>;
 		
 		Expectation( const T &actual ) : should(actual, true), shouldNot(actual, false) {}
 
