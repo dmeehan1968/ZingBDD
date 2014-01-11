@@ -248,4 +248,81 @@ describe(ComparisonMatcher, {
             });
         });
     });
+    
+    context("beGreaterThanOrEqualTo", {
+       
+        context("an integer subject greater than expected", {
+            
+            it("should pass", {
+                
+                expect(2).should.beGreaterThanOrEqualTo(1);
+                
+            });
+        });
+        
+        context("an integer subject not greater than expected", {
+            
+            it("should throw", {
+            
+                try {
+                    expect(2).shouldNot.beGreaterThanOrEqualTo(1);
+                } catch (...) {
+                    return;
+                }
+                
+                std::runtime_error("exception not received");
+                
+            });
+            
+        });
+        
+        context("an integer subject less than expected", {
+            
+            it("should throw", {
+                
+                try {
+                    expect(1).should.beGreaterThanOrEqualTo(2);
+                } catch (...) {
+                    return;
+                }
+                
+                std::runtime_error("exception not received");
+                
+            });
+        });
+        
+        context("an integer subject not less then expected", {
+            
+            it("should pass", {
+                
+                expect(1).shouldNot.beGreaterThanOrEqualTo(2);
+                
+            });
+        });
+        
+        context("an integer subject equal to expected", {
+            
+            it("should pass", {
+                
+                expect(1).should.beGreaterThanOrEqualTo(1);
+                
+            });
+            
+        });
+        
+        context("an integer subject not equal to expected", {
+            
+            it ("should throw", {
+                
+                try {
+                    expect(1).shouldNot.beGreaterThanOrEqualTo(1);
+                } catch (...) {
+                    return;
+                }
+                
+                throw std::runtime_error("expection not received");
+                
+            });
+        });
+    });
 });
