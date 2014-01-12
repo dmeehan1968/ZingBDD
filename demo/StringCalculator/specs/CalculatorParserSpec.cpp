@@ -16,7 +16,13 @@ describe(CalculatorParser, {
     
     std::shared_ptr<CalculatorParser> sut;
     
-    context("parse", {
+    beforeEach({
+        
+        sut = std::make_shared<CalculatorParser>();
+        
+    });
+    
+    context("parse valid", {
         
         struct ParserExample {
             std::string context;
@@ -65,12 +71,6 @@ describe(CalculatorParser, {
         
         CalculatorParser::container_type container;
 
-        beforeEach({
-            
-            sut = std::make_shared<CalculatorParser>();
-            
-        });
-        
         for ( auto example : examples ) {
             
             context(example.context, {
@@ -98,6 +98,62 @@ describe(CalculatorParser, {
         }   // for(examples...)
         
     });
+   
+    context("parse invalid", {
+        
+        context("invalid delimiter", {
+            
+            it("throws", {
+                
+                expect(theBlock({
+                    
+                    sut->parse("1;2");
+                    
+                })).should.raise("Expected delimiter");
+                
+            });
+        });
+        
+        context("not a number", {
+            
+            it("throws", {
+                
+                expect(theBlock({
+                    
+                    sut->parse("abc");
+                    
+                })).should.raise("Expected number");
+                
+            });
+        });
+    
+        context("delimiter specification without terminator", {
+            
+            it("throws", {
+                
+                expect(theBlock({
+                    
+                    sut->parse("//;1;2");
+                    
+                })).should.raise("Expected delimiter terminator");
+                
+            });
+        });
+        
+        context("delimiter guard without any following", {
+            
+            it("throws", {
+                
+                expect(theBlock({
+                    
+                    sut->parse("//");
+                    
+                })).should.raise("Expected delimiters");
+                
+            });
+        });
+    });
+    
     
     
 });
