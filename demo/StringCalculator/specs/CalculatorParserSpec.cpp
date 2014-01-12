@@ -17,7 +17,52 @@ describe(CalculatorParser, {
     std::shared_ptr<CalculatorParser> sut;
     
     context("parse", {
-       
+        
+        struct ParserExample {
+            std::string context;
+            std::string input;
+            CalculatorParser::container_type expected;
+        };
+        
+        std::vector<struct ParserExample> examples = {
+            {
+                "empty string",
+                "",
+                { }
+            },
+            {
+                "single number",
+                "123",
+                { 123 }
+            },
+            {
+                "two numbers, comma delimited",
+                "123,456",
+                { 123, 456 }
+            },
+            {
+                "multiple numbers, comma delimited",
+                "1,20,300,4000,50000",
+                { 1, 20, 300, 4000, 50000 }
+            },
+            {
+                "two numbers, newline delimited",
+                "123\n456",
+                { 123, 456 }
+            },
+            {
+                "three numbers, mixed delimiters",
+                "123,456\n789",
+                { 123, 456, 789 }
+            },
+            {
+                "alternate delimiters",
+                "//;\n123;456",
+                { 123, 456 }
+            }
+            
+        };
+        
         CalculatorParser::container_type container;
 
         beforeEach({
@@ -26,158 +71,32 @@ describe(CalculatorParser, {
             
         });
         
-        context("empty string", {
+        for ( auto example : examples ) {
             
-            beforeEach({
-                
-                container = sut->parse("");
-                
-            });
-            
-            it("is empty", {
-            
-                expect(container).should.beEmpty();
-                
-            });
-            
-        });
-        
-        context("comma delimiter", {
-            
-            context("single digit", {
-                
+            context(example.context, {
+               
                 beforeEach({
-                    
-                    container = sut->parse("1");
-                    
-                });
-                
-                it("returns one element", {
-                    
-                    expect( container ).should.haveCountOf( 1 );
-                    
-                });
-                
-                it("element value is one", {
-                    
-                    expect( container ).should.contain( 1 );
-                    
-                });
-                
-            });
-            
-            context("two numbers", {
-                
-                beforeEach({
-                    
-                    container = sut->parse("1,2");
-                    
-                });
-                
-                it("returns two elements", {
-                    
-                    expect(container).should.haveCountOf(2);
-                    
-                });
-                
-                it("contains expected elements", {
-                    
-                    auto expected = { 1, 2 };
-                    
-                    expect(container).should.contain(expected.begin(), expected.end());
-                    
-                });
-                
-            });
-            
-            context("multiple numbers", {
-                
-                CalculatorParser::container_type expected;
-                
-                beforeEach({
-                    
-                    expected = { 1, 20, 300, 4000, 50000 };
-                    
-                    std::ostringstream os;
-                    
-                    std::copy(expected.begin(), expected.end()-1, std::ostream_iterator<int>(os, ","));
-                    os << *(expected.end()-1);
-                    
-                    container = sut->parse(os.str());
-                    
-                });
-                
-                it("has expected element count", {
-                    
-                    expect(container).should.haveCountOf(expected.size());
-                    
-                });
-                
-                it("has expected elements", {
-                    
-                    expect(container).should.contain(expected.begin(), expected.end());
-                    
-                });
-                
-            });
-   
-        });
-        
-        context("newline delimiter", {
-            
-            context("two numbers", {
-                
-                beforeEach({
-                    
-                    container = sut->parse("123\n456");
-                    
-                });
-            
-                it("has two elements", {
                    
-                    expect(container).should.haveCountOf(2);
+                    container = sut->parse(example.input);
                     
                 });
-                   
-                it("has expected elements", {
                 
-                    auto expected = { 123, 456 };
+                it("has expected count", {
                     
-                    expect(container).should.contain(expected.begin(), expected.end());
+                    expect(container).should.haveCountOf(example.expected.size());
+                    
+                });
+                
+                it("has expected elements", {
+                    
+                    expect(container).should.contain(example.expected.begin(), example.expected.end());
                     
                 });
                 
             });
             
-        });
+        }   // for(examples...)
         
-        context("alternate delimiters", {
-           
-            context("single", {
-                
-                beforeEach({
-                    
-                    container = sut->parse("//;\n123;456");
-                    
-                });
-                
-                it("has two elements", {
-                    
-                    expect(container).should.haveCountOf(2);
-                    
-                });
-                
-                it("has expected elements", {
-                    
-                    auto expected = { 123, 456 };
-                    
-                    expect(container).should.contain(expected.begin(), expected.end());
-                    
-                });
-                
-            });
-            
-        });
     });
     
     
