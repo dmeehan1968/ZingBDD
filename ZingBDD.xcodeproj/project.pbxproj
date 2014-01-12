@@ -53,6 +53,12 @@
 		A3A07C4818818D1D002C0633 /* ContainerMatcherSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ContainerMatcherSpec.cpp; sourceTree = "<group>"; };
 		A3A07C4E1881BFBC002C0633 /* StringMatcherSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringMatcherSpec.cpp; sourceTree = "<group>"; };
 		A3A07C511881C20D002C0633 /* StringMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringMatcher.h; sourceTree = "<group>"; };
+		A3A07C531882A0AE002C0633 /* _Sidebar.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = _Sidebar.md; sourceTree = "<group>"; };
+		A3A07C541882A0AE002C0633 /* Caveats.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Caveats.md; sourceTree = "<group>"; };
+		A3A07C551882A0AE002C0633 /* Expectations.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Expectations.md; sourceTree = "<group>"; };
+		A3A07C561882A0AE002C0633 /* Getting-Started.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Getting-Started.md"; sourceTree = "<group>"; };
+		A3A07C571882A0AE002C0633 /* Home.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Home.md; sourceTree = "<group>"; };
+		A3A07C581882A0AE002C0633 /* Miscellaneous.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Miscellaneous.md; sourceTree = "<group>"; };
 		A3CE2F9F187C702F00195E3C /* CalculatorParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorParser.h; sourceTree = "<group>"; };
 		A3CE2FA0187C721F00195E3C /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
 		A3CE2FA1187CB0F500195E3C /* EqualMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EqualMatcher.h; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 		A3176F7A1879E9B70092DC27 = {
 			isa = PBXGroup;
 			children = (
+				A3A07C521882A0AE002C0633 /* wiki */,
 				A345AC4E188022DC0067632E /* README.md */,
 				A3176F98187B34170092DC27 /* demo */,
 				A3176F90187AD7D50092DC27 /* include */,
@@ -175,6 +182,20 @@
 				A345AC49188005B50067632E /* CalculatorParserSpec.cpp */,
 			);
 			path = specs;
+			sourceTree = "<group>";
+		};
+		A3A07C521882A0AE002C0633 /* wiki */ = {
+			isa = PBXGroup;
+			children = (
+				A3A07C531882A0AE002C0633 /* _Sidebar.md */,
+				A3A07C541882A0AE002C0633 /* Caveats.md */,
+				A3A07C551882A0AE002C0633 /* Expectations.md */,
+				A3A07C561882A0AE002C0633 /* Getting-Started.md */,
+				A3A07C571882A0AE002C0633 /* Home.md */,
+				A3A07C581882A0AE002C0633 /* Miscellaneous.md */,
+			);
+			name = wiki;
+			path = ../wiki;
 			sourceTree = "<group>";
 		};
 		A3CE2FA8187DEADC00195E3C /* specs */ = {
