@@ -57,6 +57,10 @@ namespace ZingBDD {
                     throw std::runtime_error(os.str());
                     
                 }
+            } catch (...) {
+                
+                throw std::runtime_error("Exception received of unexpected type");
+                
             }
             
             if (logical()) {
