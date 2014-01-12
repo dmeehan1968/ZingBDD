@@ -28,17 +28,11 @@ describe(StringCalculator, {
         
     });
     
-    it("is default constructible", {
-        
-        expect( std::is_default_constructible<StringCalculator>::value ).should.beTrue();
-        
-    });
-
     context("constructor", {
         
         it("exists", {
             
-            expect( sut.get() ).shouldNot.beNil();
+            expect( (bool)sut ).should.beTrue();
             
         });
         
@@ -46,57 +40,71 @@ describe(StringCalculator, {
     
     context("add", {
         
-        it("an empty string", {
-            
-            expect( sut->add("") ).should.equal( 0 );
-            
-        });
-
-        context("single numbers", {
+        struct ValidInputs {
+            std::string expectation;
+            std::string input;
+            int result;
+        };
         
-            it("with digit one", {
-                
-                expect( sut->add("1") ).should.equal( 1 );
-                
-            });
-            
-            it("three consequtive digits", {
-                
-                expect( sut->add("123") ).should.equal( 123 );
-                
-            });
-            
-        });
-
-        context("comma delimited", {
-
-            it("single digit numbers separated", {
-                
-                expect( sut->add("1,2") ).should.equal( 3 );
-                
-            });
-
-            it("multiple digits separated", {
-                
-                expect( sut->add("123,321") ).should.equal( 444 );
-                
-            });
-            
-            it("any number of numbers", {
-                
-                expect( sut->add("1,20,300,4000,50000") ).should.equal( 54321 );
-                
-            });
-            
-        });
+        std::vector<struct ValidInputs> validInputs = {
+            {
+                "an empty string returns 0",
+                "",
+                0
+            },
+            {
+                "the single digit 1 returns 1",
+                "1",
+                1
+            },
+            {
+                "the three digit number 123 returns 123",
+                "123",
+                123
+            },
+            {
+                "two numbers, comma delimited",
+                "1,2",
+                3
+            },
+            {
+                "multiple digit numbers separated by comma",
+                "123,321",
+                444
+            },
+            {
+                "multiple numbers, comma separated",
+                "1,20,300,4000,50000",
+                54321
+            },
+            {
+                "single digit numbers, newline and comma delimited",
+                "1\n2,3",
+                6
+            },
+            {
+                "alternate single delimiter",
+                "//;\n1;2",
+                3
+            },
+            {
+                "alternative delimiters, two of",
+                "//;:\n1;2:3",
+                6
+            },
+        };
         
+        for ( auto validInput : validInputs ) {
+            
+            it(validInput.expectation, {
+                
+                expect(sut->add(validInput.input)).should.equal(validInput.result);
+                
+            });
+            
+        }
+
         context("newline delimited", {
-            
-            it("numbers separated by newline or comma", {
-
-                expect( sut->add("1\n2,3") ).should.equal( 6 );
-                
-            });
             
             it("consecutive different delimiters throws", {
                 
@@ -135,18 +143,6 @@ describe(StringCalculator, {
         
         context("alternate delimiters", {
            
-            it("one delimiter", {
-                
-                expect( sut->add("//;\n1;2") ).should.equal( 3 );
-                
-            });
-            
-            it("two delimiters", {
-                
-                expect( sut->add("//;:\n1;2:3") ).should.equal( 6 );
-                
-            });
-            
             it("no delimiters found throws", {
                
                 expect( theBlock( {
