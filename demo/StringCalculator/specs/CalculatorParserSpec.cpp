@@ -65,6 +65,11 @@ describe(CalculatorParser, {
                 "alternate delimiters",
                 "//;\n123;456",
                 { 123, 456 }
+            },
+            {
+                "negative numbers",
+                "1,-2,3,-4,5",
+                { 1, -2, 3, -4, 5 }
             }
             
         };
