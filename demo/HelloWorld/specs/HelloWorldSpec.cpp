@@ -22,7 +22,7 @@ describe(HelloWorld, {
     
     it("exists", {
        
-        expect( sut.get() ).shouldNot.beNil();
+        expect( (bool)sut ).should.beTrue();
         
     });
     
