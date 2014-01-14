@@ -94,7 +94,7 @@ namespace StringCalculator {
          
             iterator_type start = _iterator;
             
-            while ( ! atEnd() && *_iterator == *begin && begin != end ) {
+			while (!atEnd() && begin != end && *_iterator == *begin) {
                 
                 if (output != nullptr) {
                     

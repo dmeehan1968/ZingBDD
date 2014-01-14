@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#include "ZingBDD.h"
+#include <memory>
 
-#include "HelloWorld.h"
+#include "ZingBDD/ZingBDD.h"
+
+#include "../src/HelloWorld.h"
 
 describe(HelloWorld, {
 

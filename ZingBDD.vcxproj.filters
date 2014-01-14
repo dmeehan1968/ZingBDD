@@ -21,7 +21,13 @@
     <ClInclude Include="include\BeforeEach.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\BeWithinDelta.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="include\BooleanMatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ComparisonMatcher.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\ContainerMatcher.h">
@@ -66,15 +72,57 @@
     <ClInclude Include="include\StreamReporter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\StringMatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="include\Verifier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\ZingBDD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="demo\HelloWorld\src\HelloWorld.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\StringCalculator\src\CalculatorParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\StringCalculator\src\CharacterSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\StringCalculator\src\Scanner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="demo\StringCalculator\src\StringCalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="demo\HelloWorld\specs\HelloWorldSpec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="demo\HelloWorld\src\HelloWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="demo\StringCalculator\specs\CalculatorParserSpec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="demo\StringCalculator\specs\StringCalculatorSpec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\main.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="specs\BooleanMatcherSpec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="specs\ComparisonMatcherSpec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="specs\ContainerMatcherSpec.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="specs\StringMatcherSpec.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

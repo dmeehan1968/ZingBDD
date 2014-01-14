@@ -16,7 +16,8 @@ namespace ZingBDD {
 	
 #define describe(group, ...)												\
 	class CLASS(group) : public ZingBDD::Specification {					\
-	using ZingBDD::Specification::Specification;							\
+    public:                                                                 \
+    CLASS(group)(const std::string description) : Specification(description) {} \
 	virtual void run(ZingBDD::Reporter &reporter, ZingBDD::ExampleGroup &__group__) override __VA_ARGS__		\
 	};																		\
 	static CLASS(group) INSTANCE(group)(#group);							\

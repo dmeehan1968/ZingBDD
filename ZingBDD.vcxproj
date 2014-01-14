@@ -10,6 +10,46 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="demo\HelloWorld\src\HelloWorld.h" />
+    <ClInclude Include="demo\StringCalculator\src\CalculatorParser.h" />
+    <ClInclude Include="demo\StringCalculator\src\CharacterSet.h" />
+    <ClInclude Include="demo\StringCalculator\src\Scanner.h" />
+    <ClInclude Include="demo\StringCalculator\src\StringCalculator.h" />
+    <ClInclude Include="include\AfterEach.h" />
+    <ClInclude Include="include\BeforeEach.h" />
+    <ClInclude Include="include\BeWithinDelta.h" />
+    <ClInclude Include="include\BooleanMatcher.h" />
+    <ClInclude Include="include\ComparisonMatcher.h" />
+    <ClInclude Include="include\ContainerMatcher.h" />
+    <ClInclude Include="include\Each.h" />
+    <ClInclude Include="include\EqualMatcher.h" />
+    <ClInclude Include="include\Example.h" />
+    <ClInclude Include="include\ExampleGroup.h" />
+    <ClInclude Include="include\Expectation.h" />
+    <ClInclude Include="include\Macros.h" />
+    <ClInclude Include="include\Matcher.h" />
+    <ClInclude Include="include\NilMatcher.h" />
+    <ClInclude Include="include\RaiseMatcher.h" />
+    <ClInclude Include="include\Reporter.h" />
+    <ClInclude Include="include\Runner.h" />
+    <ClInclude Include="include\Specification.h" />
+    <ClInclude Include="include\StreamReporter.h" />
+    <ClInclude Include="include\StringMatcher.h" />
+    <ClInclude Include="include\Verifier.h" />
+    <ClInclude Include="include\ZingBDD.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="demo\HelloWorld\specs\HelloWorldSpec.cpp" />
+    <ClCompile Include="demo\HelloWorld\src\HelloWorld.cpp" />
+    <ClCompile Include="demo\StringCalculator\specs\CalculatorParserSpec.cpp" />
+    <ClCompile Include="demo\StringCalculator\specs\StringCalculatorSpec.cpp" />
+    <ClCompile Include="specs\BooleanMatcherSpec.cpp" />
+    <ClCompile Include="specs\ComparisonMatcherSpec.cpp" />
+    <ClCompile Include="specs\ContainerMatcherSpec.cpp" />
+    <ClCompile Include="specs\StringMatcherSpec.cpp" />
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{F28DA965-5B64-4F4A-ACF2-1B2A5ED8E2FC}</ProjectGuid>
     <RootNamespace>ZingBDD</RootNamespace>
@@ -44,7 +84,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>Z:\My Documents\Dropbox\Projects\C++\ZingBDD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -64,30 +104,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="include\AfterEach.h" />
-    <ClInclude Include="include\BeforeEach.h" />
-    <ClInclude Include="include\BooleanMatcher.h" />
-    <ClInclude Include="include\ContainerMatcher.h" />
-    <ClInclude Include="include\Each.h" />
-    <ClInclude Include="include\EqualMatcher.h" />
-    <ClInclude Include="include\Example.h" />
-    <ClInclude Include="include\ExampleGroup.h" />
-    <ClInclude Include="include\Expectation.h" />
-    <ClInclude Include="include\Macros.h" />
-    <ClInclude Include="include\Matcher.h" />
-    <ClInclude Include="include\NilMatcher.h" />
-    <ClInclude Include="include\RaiseMatcher.h" />
-    <ClInclude Include="include\Reporter.h" />
-    <ClInclude Include="include\Runner.h" />
-    <ClInclude Include="include\Specification.h" />
-    <ClInclude Include="include\StreamReporter.h" />
-    <ClInclude Include="include\Verifier.h" />
-    <ClInclude Include="include\ZingBDD.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

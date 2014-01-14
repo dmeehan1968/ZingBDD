@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#include "ZingBDD.h"
+#include "ZingBDD/ZingBDD.h"
 
 describe(BooleanMatcher, {
     
@@ -41,7 +41,7 @@ describe(BooleanMatcher, {
             try {
                 expect( true ).shouldNot.beTrue();
                 
-            } catch (std::exception &e) {
+            } catch (std::exception &) {
                 
                 return;
                 
@@ -56,7 +56,7 @@ describe(BooleanMatcher, {
             try {
                 expect( false ).shouldNot.beFalse();
                 
-            } catch (std::exception &e) {
+            } catch (std::exception &) {
                 
                 return;
                 

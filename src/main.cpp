@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-#include "ZingBDD.h"
+#include "ZingBDD/ZingBDD.h"
 
 int main(int argc, const char * argv[])
 {

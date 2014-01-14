@@ -10,6 +10,7 @@
 #define ZingBDD_StringParser_h
 
 #include <set>
+#include <memory>
 
 #include "Scanner.h"
 #include "CharacterSet.h"

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#include "ZingBDD.h"
+#include "ZingBDD/ZingBDD.h"
 
 describe(ContainerMatcher, {
    

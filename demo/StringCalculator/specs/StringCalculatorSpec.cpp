@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Replicated Solutions Limited. All rights reserved.
 //
 
-#include "ZingBDD.h"
+#include "ZingBDD/ZingBDD.h"
 
-#include "StringCalculator.h"
+#include "../src/StringCalculator.h"
 
 describe(StringCalculator, {
     
