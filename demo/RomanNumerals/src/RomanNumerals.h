@@ -20,7 +20,7 @@ namespace RomanNumerals {
             std::string roman;
         };
         
-        std::string roman( int decimal ) {
+        std::string roman( int arabic ) {
         
             std::vector<struct ConversionTable> conversionTable = {
                 {   1000,       "M"         },
@@ -40,14 +40,14 @@ namespace RomanNumerals {
             };
             std::string result;
             
-            while (decimal > 0) {
+            while (arabic > 0) {
                 
                 for ( auto conversion : conversionTable ) {
                     
-                    if (decimal >= conversion.arabic) {
+                    if (arabic >= conversion.arabic) {
                         
                         result += conversion.roman;
-                        decimal -= conversion.arabic;
+                        arabic -= conversion.arabic;
                         break;
                         
                     }
