@@ -15,76 +15,42 @@ namespace RomanNumerals {
         
     public:
         
+        struct ConversionTable {
+            int decimal;
+            std::string roman;
+        };
+        
         std::string roman( int decimal ) {
         
+            std::vector<struct ConversionTable> conversionTable = {
+                {   1000,       "M"         },
+                {   900,        "CM"        },
+                {   500,        "D"         },
+                {   400,        "CD"        },
+                {   100,        "C"         },
+                {   90,         "XC"        },
+                {   50,         "L"         },
+                {   40,         "XL"        },
+                {   10,         "X"         },
+                {   9,          "IX"        },
+                {   5,          "V"         },
+                {   4,          "IV"        },
+                {   1,          "I"         },
+                
+            };
             std::string result;
             
             while (decimal > 0) {
                 
-                if (decimal >= 1000) {
+                for ( auto conversion : conversionTable ) {
                     
-                    result += "M";
-                    decimal -= 1000;
-                    
-                } else if (decimal >= 900) {
-                    
-                    result += "CM";
-                    decimal -= 900;
-                    
-                } else if (decimal >= 500) {
-                    
-                    result += "D";
-                    decimal -= 500;
-                    
-                } else if (decimal >= 400) {
-                    
-                    result += "CD";
-                    decimal -= 400;
-                    
-                } else if (decimal >= 100) {
-                    
-                    result += "C";
-                    decimal -= 100;
-                    
-                } else if (decimal >= 90) {
-                    
-                    result += "XC";
-                    decimal -= 90;
-                    
-                } else if (decimal >= 50) {
-                    
-                    result += "L";
-                    decimal -= 50;
-                    
-                } else if (decimal >= 40) {
-                    
-                    result += "XL";
-                    decimal -= 40;
-                    
-                } else if (decimal >= 10) {
-                    
-                    result += "X";
-                    decimal -= 10;
-                    
-                } else if (decimal >= 9) {
-                    
-                    result += "IX";
-                    decimal -= 9;
-                    
-                } else if (decimal >= 5) {
-                    
-                    result += "V";
-                    decimal -= 5;
-
-                } else if (decimal >= 4) {
+                    if (decimal >= conversion.decimal) {
                         
-                    result += "IV";
-                    decimal -= 4;
+                        result += conversion.roman;
+                        decimal -= conversion.decimal;
+                        break;
                         
-                } else {
-                    
-                    result.push_back('I');
-                    decimal--;
+                    }
                     
                 }
                 
