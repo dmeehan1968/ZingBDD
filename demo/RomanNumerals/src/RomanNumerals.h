@@ -16,7 +16,7 @@ namespace RomanNumerals {
     public:
         
         struct ConversionTable {
-            int decimal;
+            int arabic;
             std::string roman;
         };
         
@@ -44,10 +44,10 @@ namespace RomanNumerals {
                 
                 for ( auto conversion : conversionTable ) {
                     
-                    if (decimal >= conversion.decimal) {
+                    if (decimal >= conversion.arabic) {
                         
                         result += conversion.roman;
-                        decimal -= conversion.decimal;
+                        decimal -= conversion.arabic;
                         break;
                         
                     }
