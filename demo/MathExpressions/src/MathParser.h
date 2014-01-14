@@ -84,6 +84,17 @@ namespace MathExpressions {
         }
     };
     
+    class MinusNode : public OperatorNode {
+        
+    public:
+        MinusNode(pointer_type left, pointer_type right) : OperatorNode(left, right) {}
+        
+        virtual int getValue() override {
+            
+            return left()->getValue() - right()->getValue();
+            
+        }
+    };
     class MathParser {
         
     public:
@@ -158,22 +169,27 @@ namespace MathExpressions {
         
         bool parseOperator() {
             
-            StringCalculator::CharacterSet operators("+");
+            StringCalculator::CharacterSet operators("+-");
             
             string_type op;
             
             if (_scanner->scan(operators, &op)) {
                 
+                std::shared_ptr<Node> opNode;
+                
                 switch (op[0]) {
                     case '+':
-                    {
-                        auto add = std::make_shared<AddNode>(_node, nullptr);
-                        _node = add;
+                        opNode = std::make_shared<AddNode>(_node, nullptr);
                         break;
-                    }
+
+                    case '-':
+                        opNode = std::make_shared<MinusNode>(_node, nullptr);
+                        break;
+
                     default:
                         break;
                 }
+                _node = opNode;
                 return true;
             }
             return false;

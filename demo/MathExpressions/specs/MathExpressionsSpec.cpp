@@ -18,39 +18,80 @@ describe(MathExpressions, {
     
     std::shared_ptr<MathParser> sut;
     
-    context("parse", {
+    struct ValidInputs {
+        std::string context;
+        std::string input;
+        int result;
+    };
     
-        beforeEach({
+    std::vector<struct ValidInputs> validInputs = {
+        {
+            "empty string returns 0",
+            "",
+            0
+        },
+        {
+            "single digit returns same value",
+            "1",
+            1
+        },
+        {
+            "multiple digit number returns same value",
+            "123",
+            123
+        },
+        {
+            "1+1 = 2",
+            "1+1",
+            2
+        },
+        {
+            "123+321 = 444",
+            "123+321",
+            444
+        },
+        {
+            "1-1 = 0",
+            "1-1",
+            0
+        },
+        {
+            "321-123 = 198",
+            "321-123",
+            198
+        },
+        {
+            "1+2+3 = 6",
+            "1+2+3",
+            6
+        },
+        {
+            "1+2-3 = 0",
+            "1+2-3",
+            0
+        },
+        
+    };
+    
+    for ( auto expected : validInputs ) {
+        
+        context("parse", {
             
-            sut = std::make_shared<MathParser>();
+            beforeEach({
+                
+                sut = std::make_shared<MathParser>();
+                
+            });
+            
+            it(expected.context, {
+                
+                expect(sut->parse(expected.input)).should.equal(expected.result);
+                
+            });
             
         });
         
-        it("empty string returns 0", {
-            
-            expect(sut->parse("")).should.equal(0);
-            
-        });
-        
-        it("single digit returns same value", {
-            
-            expect(sut->parse("1")).should.equal(1);
-            
-        });
-        
-        it("multiple digit number returns same value", {
-            
-            expect(sut->parse("123")).should.equal(123);
-            
-        });
-        
-        it("1 + 1 = 2", {
-            
-            expect(sut->parse("1+1")).should.equal(2);
-            
-        });
-        
-    });
+    }
     
 });
 
