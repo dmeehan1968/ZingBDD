@@ -19,9 +19,9 @@ namespace MathExpressions {
     public:
         using pointer_type = std::shared_ptr<Node>;
         
-        virtual int getValue() { return 0; };
-        virtual bool addNode(pointer_type node) {
-            return false;
+        virtual int value() = 0;
+        virtual void push(pointer_type node) {
+            throw std::runtime_error("Format error");
         }
     };
     
@@ -30,7 +30,7 @@ namespace MathExpressions {
     public:
         ValueNode(int value) : _value(value) {}
         
-        virtual int getValue() override {
+        virtual int value() override {
             return _value;
         }
         
@@ -54,16 +54,15 @@ namespace MathExpressions {
             return _right;
         }
         
-        bool addNode(pointer_type node) {
+        virtual void push(pointer_type node) override {
             
             if (_left == nullptr) {
                 _left = node;
             } else if (_right == nullptr) {
                 _right = node;
             } else {
-                return false;
+                throw std::runtime_error("Format exception");
             }
-            return true;
         }
         
     private:
@@ -77,9 +76,9 @@ namespace MathExpressions {
     public:
         AddNode(pointer_type left, pointer_type right) : OperatorNode(left, right) {}
         
-        virtual int getValue() override {
+        virtual int value() override {
             
-            return left()->getValue() + right()->getValue();
+            return left()->value() + right()->value();
             
         }
     };
@@ -89,12 +88,13 @@ namespace MathExpressions {
     public:
         MinusNode(pointer_type left, pointer_type right) : OperatorNode(left, right) {}
         
-        virtual int getValue() override {
+        virtual int value() override {
             
-            return left()->getValue() - right()->getValue();
+            return left()->value() - right()->value();
             
         }
     };
+    
     class MathParser {
         
     public:
@@ -124,11 +124,7 @@ namespace MathExpressions {
                         
                     } else {
                         
-                        if ( ! _node->addNode(std::make_shared<ValueNode>(value))) {
-                            
-                            throw std::runtime_error("Unexpected number");
-                            
-                        }
+                        _node->push(std::make_shared<ValueNode>(value));
                         
                     }
                     
@@ -148,7 +144,7 @@ namespace MathExpressions {
         int evaluateExpression() {
             
             if (_node != nullptr) {
-                return _node->getValue();
+                return _node->value();
             }
             return 0;
         }
