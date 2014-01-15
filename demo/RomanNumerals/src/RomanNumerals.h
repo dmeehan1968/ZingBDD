@@ -22,37 +22,41 @@ namespace RomanNumerals {
         
         std::string roman( int arabic ) {
         
-            std::vector<struct ConversionTable> conversionTable = {
-                {   1000,       "M"         },
-                {   900,        "CM"        },
-                {   500,        "D"         },
-                {   400,        "CD"        },
-                {   100,        "C"         },
-                {   90,         "XC"        },
-                {   50,         "L"         },
-                {   40,         "XL"        },
-                {   10,         "X"         },
-                {   9,          "IX"        },
-                {   5,          "V"         },
-                {   4,          "IV"        },
-                {   1,          "I"         },
-                
-            };
+            if (arabic < 1 || arabic > 3999) {
+                throw std::range_error("Arabic should be in range 1 to 3999");
+            }
+            
             std::string result;
+            char romanNumerals[] = "IVXLCDM";
+            int index = 0;
             
             while (arabic > 0) {
+
+                int mod = arabic % 10;
                 
-                for ( auto conversion : conversionTable ) {
+                if (mod == 9) {
                     
-                    if (arabic >= conversion.arabic) {
+                    result.insert(0, 1, romanNumerals[index+2]);
+                    result.insert(0, 1, romanNumerals[index]);
+                    
+                } else if (mod >= 5) {
+                    
+                    result.insert(0, mod % 5, romanNumerals[index]);
+                    result.insert(0, 1, romanNumerals[index+1]);
+                    
+                } else if (mod == 4) {
                         
-                        result += conversion.roman;
-                        arabic -= conversion.arabic;
-                        break;
+                    result.insert(0, 1, romanNumerals[index+1]);
+                    result.insert(0, 1, romanNumerals[index]);
                         
-                    }
+                } else {
+                        
+                    result.insert(0, mod, romanNumerals[index]);
                     
                 }
+
+                index += 2;
+                arabic /= 10;
                 
             }
             

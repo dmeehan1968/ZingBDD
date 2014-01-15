@@ -118,6 +118,11 @@ describe(RomanNumerals, {
             3333,
             "MMMCCCXXXIII"
         },
+        {
+            "3999 equals MMMCMXCIX",
+            3999,
+            "MMMCMXCIX"
+        },
     };
     
     beforeEach({
@@ -135,5 +140,25 @@ describe(RomanNumerals, {
         });
         
     }
+    
+    it("throws if arabic less than 1", {
+        
+        expect(theBlock({
+            
+            sut->roman(0);
+            
+        })).should.raise<std::range_error>("Arabic should be in range 1 to 3999");
+        
+    });
+    
+    it("throws if arabic greater than 3999", {
+        
+        expect(theBlock({
+            
+            sut->roman(4000);
+            
+        })).should.raise<std::range_error>("Arabic should be in range 1 to 3999");
+        
+    });
     
 });
