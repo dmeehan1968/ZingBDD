@@ -17,12 +17,3 @@ Please note: This is an early alpha version.  I'd encourage you to give it a try
 ## View the Wiki
 
 A full description of ZingBDD is available in the [Wiki](https://github.com/davemeehan1968/ZingBDD/wiki).
-
-
-
-
-
-
-
-
-
