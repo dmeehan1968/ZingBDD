@@ -9,17 +9,19 @@
 #ifndef ZingBDD_BeWithinDelta_h
 #define ZingBDD_BeWithinDelta_h
 
+#include <cmath>
+
 namespace ZingBDD {
     
     template <typename T>
     class BeWithinDelta {
         
     public:
-        BeWithinDelta( const T& actual, const T& delta, bool logical ) : _actual(actual), _delta(std::abs(delta)), _logical(logical) {}
+        BeWithinDelta( const T& actual, const T& delta, bool logical ) : _actual(actual), _delta(fabs(delta)), _logical(logical) {}
         
         void of( const T& expected ) {
             
-            if ((std::abs(_actual - expected) > _delta) == _logical) {
+            if ((fabs(_actual - expected) > _delta) == _logical) {
                 
                 std::ostringstream os;
                 
