@@ -111,7 +111,7 @@ namespace ZingBDD {
             
             while (iter != end) {
                 
-                if (std::find(this->actual().begin(), this->actual().end(), *iter) == this->actual().end()) {
+                if ((std::find(this->actual().begin(), this->actual().end(), *iter) == this->actual().end()) == this->logical()) {
                     
                     missing.push_back(*iter);
                     
