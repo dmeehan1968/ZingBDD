@@ -12,6 +12,7 @@
 #include <sstream>
 
 #include "Matcher.h"
+#include "PrettyPrint.h"
 
 namespace ZingBDD {
     

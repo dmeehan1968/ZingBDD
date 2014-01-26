@@ -9,6 +9,8 @@
 #ifndef ZingBDD_ContainerMatcher_h
 #define ZingBDD_ContainerMatcher_h
 
+#include <vector>
+
 #include "Matcher.h"
 
 namespace ZingBDD {

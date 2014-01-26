@@ -45,6 +45,7 @@
 		A3176F9F187C24C70092DC27 /* BeforeEach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeforeEach.h; sourceTree = "<group>"; };
 		A3176FA0187C28EF0092DC27 /* Reporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reporter.h; sourceTree = "<group>"; };
 		A3176FA1187C29910092DC27 /* StreamReporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamReporter.h; sourceTree = "<group>"; };
+		A33EF85F18950C7600800E3B /* PrettyPrint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrettyPrint.h; sourceTree = "<group>"; };
 		A345AC49188005B50067632E /* CalculatorParserSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CalculatorParserSpec.cpp; sourceTree = "<group>"; };
 		A345AC4C188005F20067632E /* CharacterSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterSet.h; sourceTree = "<group>"; };
 		A345AC4D188008080067632E /* ContainerMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerMatcher.h; sourceTree = "<group>"; };
@@ -148,6 +149,7 @@
 				A3F7C56E187F236E0092744E /* AfterEach.h */,
 				A3F7C56D187F23180092744E /* Each.h */,
 				A3F7C569187F1D540092744E /* ZingBDD.h */,
+				A33EF85F18950C7600800E3B /* PrettyPrint.h */,
 			);
 			path = ZingBDD;
 			sourceTree = "<group>";
