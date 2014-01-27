@@ -24,6 +24,7 @@
 #include <list>
 #include <set>
 #include <array>
+#include <map>
 
 // This works similar to ostream_iterator, but doesn't print a delimiter after the final item
 template<typename T, typename TChar = char, typename TCharTraits = std::char_traits<TChar> >
