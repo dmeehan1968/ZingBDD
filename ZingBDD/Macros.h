@@ -20,7 +20,7 @@ namespace ZingBDD {
     CLASS(group)(const std::string description) : Specification(description) {} \
 	virtual void run(ZingBDD::Reporter &reporter, ZingBDD::ExampleGroup &__group__) override __VA_ARGS__		\
 	};																		\
-	static CLASS(group) INSTANCE(group)(#group);							\
+	static CLASS(group) INSTANCE(group)(#group)
 	
 #define context(x, ...)														\
 	__group__.exampleGroup((x), reporter, [&](ZingBDD::Reporter &reporter, ZingBDD::ExampleGroup &__group__) __VA_ARGS__)
