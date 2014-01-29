@@ -18,16 +18,30 @@ namespace ZingBDD {
 	class CLASS(group) : public ZingBDD::Specification {					\
     public:                                                                 \
     CLASS(group)(const std::string description) : Specification(description) {} \
-	virtual void run(ZingBDD::Reporter &reporter, ZingBDD::ExampleGroup &__group__) override __VA_ARGS__		\
+	virtual void run(ZingBDD::Reporter &__reporter__, ZingBDD::ExampleGroup &__group__) override __VA_ARGS__		\
 	};																		\
 	static CLASS(group) INSTANCE(group)(#group)
 	
+#define behaviour(group, ...)                                               \
+    class group : public ZingBDD::Specification {                           \
+    public:                                                                 \
+    group(const std::string description) : Specification(description) {}    \
+    virtual void run(ZingBDD::Reporter &__reporter__, ZingBDD::ExampleGroup &__group__) override __VA_ARGS__                                                \
+    };
+
 #define context(x, ...)														\
-	__group__.exampleGroup((x), reporter, [&](ZingBDD::Reporter &reporter, ZingBDD::ExampleGroup &__group__) __VA_ARGS__)
+	__group__.exampleGroup((x), __reporter__, [&](ZingBDD::Reporter &reporter, ZingBDD::ExampleGroup &__group__) __VA_ARGS__)
 	
 #define it(x, ...)															\
-	__group__.example((x), reporter, [&] __VA_ARGS__)
+	__group__.example((x), __reporter__, [&] __VA_ARGS__)
 	
+
+#define behavesLike(group)                                                  \
+context(#group, {                                                           \
+    group INSTANCE(group)(#group);                                          \
+    INSTANCE(group).run(reporter, __group__);                               \
+})
+
 }
 
 #define beforeEach(...)														\
