@@ -36,7 +36,7 @@ namespace ZingBDD {
 		
 		void beNonNil() {
 			
-			if ((this->actual() == nullptr) == this->logical()) {
+			if ((&this->actual() == nullptr) == this->logical()) {
 				
 				throw std::runtime_error(error());
 			}
