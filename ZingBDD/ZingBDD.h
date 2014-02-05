@@ -12,6 +12,8 @@
 #include "Specification.h"
 #include "Runner.h"
 #include "StreamReporter.h"
+#include "MethodCall.h"
+#include "CallSequence.h"
 
 // WARNING: Do Not Include Macros.h before Specification.h
 #include "Macros.h"

@@ -50,6 +50,10 @@
 		A345AC4C188005F20067632E /* CharacterSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterSet.h; sourceTree = "<group>"; };
 		A345AC4D188008080067632E /* ContainerMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerMatcher.h; sourceTree = "<group>"; };
 		A345AC4E188022DC0067632E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		A375670C18A2B2A000CFA069 /* Arguments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Arguments.h; sourceTree = "<group>"; };
+		A375670D18A2B2E200CFA069 /* CallSequence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallSequence.h; sourceTree = "<group>"; };
+		A375670E18A2B31000CFA069 /* VoidMethodCall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoidMethodCall.h; sourceTree = "<group>"; };
+		A375670F18A2B32900CFA069 /* MethodCall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MethodCall.h; sourceTree = "<group>"; };
 		A3A050E3188085BB00E7A4EE /* ComparisonMatcherSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComparisonMatcherSpec.cpp; sourceTree = "<group>"; };
 		A3A050E61880929700E7A4EE /* ComparisonMatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComparisonMatcher.h; sourceTree = "<group>"; };
 		A3A07C4718817994002C0633 /* BeWithinDelta.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeWithinDelta.h; sourceTree = "<group>"; };
@@ -127,6 +131,10 @@
 		A3176F90187AD7D50092DC27 /* ZingBDD */ = {
 			isa = PBXGroup;
 			children = (
+				A375670C18A2B2A000CFA069 /* Arguments.h */,
+				A375670D18A2B2E200CFA069 /* CallSequence.h */,
+				A375670E18A2B31000CFA069 /* VoidMethodCall.h */,
+				A375670F18A2B32900CFA069 /* MethodCall.h */,
 				A3176F92187AD83D0092DC27 /* Expectation.h */,
 				A3CE2FA5187CB1D400195E3C /* Verifier.h */,
 				A3CE2FA4187CB1B500195E3C /* BooleanMatcher.h */,
