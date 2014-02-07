@@ -2,6 +2,10 @@
 
 ZingBDD is a minimal BDD framework for C++ inspired by [RSpec](http://rspec.info).
 
+## Licence
+
+See [the license](LICENSE.md) for terms and conditions of use.
+
 ## Features
 
 * Simple code constructs to keep your specs (tests) clean and easy to read.
