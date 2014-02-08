@@ -21,9 +21,7 @@ int main(int argc, const char * argv[])
 {
 
 	ZingBDD::StreamReporter reporter(std::cout);
-	ZingBDD::Runner::getInstance().run(reporter);
-	
-    return 0;
+	return ZingBDD::Runner::getInstance().run(reporter);
 }
 
 
