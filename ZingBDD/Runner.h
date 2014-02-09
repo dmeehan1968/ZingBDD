@@ -46,7 +46,7 @@ namespace ZingBDD {
 			
 		}
 		
-		void run(Reporter &reporter) {
+		uint run(Reporter &reporter) {
 			
 			for ( auto example : _examples ) {
 				
@@ -55,6 +55,8 @@ namespace ZingBDD {
 			}
 			
 			reporter.summary();
+            
+            return reporter.failed();
 		}
 		
 	private:
