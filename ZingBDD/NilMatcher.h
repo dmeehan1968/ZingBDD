@@ -36,7 +36,7 @@ namespace ZingBDD {
 			
 			if ((&this->actual() != nullptr) == this->logical()) {
 				
-				throw std::runtime_error(error());
+				throw std::runtime_error(error(true));
 			}
 			
 		}
@@ -45,16 +45,16 @@ namespace ZingBDD {
 			
 			if ((&this->actual() == nullptr) == this->logical()) {
 				
-				throw std::runtime_error(error());
+				throw std::runtime_error(error(false));
 			}
 			
 		}
 		
-		std::string error() {
-			if (this->logical()) {
+		std::string error(bool inverse) {
+			if (this->logical() == inverse) {
 				return "expected Nil";
 			} else {
-				return "expected not to be Nil";
+				return "expected Not to be Nil";
 			}
 		}
 		
