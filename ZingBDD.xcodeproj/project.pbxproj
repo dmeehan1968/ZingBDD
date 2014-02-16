@@ -11,6 +11,7 @@
 		A3A050E5188085BB00E7A4EE /* ComparisonMatcherSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A050E3188085BB00E7A4EE /* ComparisonMatcherSpec.cpp */; };
 		A3A07C4A18818D1D002C0633 /* ContainerMatcherSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A07C4818818D1D002C0633 /* ContainerMatcherSpec.cpp */; };
 		A3A07C501881BFBC002C0633 /* StringMatcherSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A07C4E1881BFBC002C0633 /* StringMatcherSpec.cpp */; };
+		A3A5EB4B18B0F85E00056560 /* NilMatcherSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A5EB4A18B0F85E00056560 /* NilMatcherSpec.cpp */; };
 		A3A8E7BE1885A94D0077914B /* MathExpressionsSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A8E7BC1885A94D0077914B /* MathExpressionsSpec.cpp */; };
 		A3A8E7D11885D0530077914B /* RomanNumeralsSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A8E7D01885D0530077914B /* RomanNumeralsSpec.cpp */; };
 		A3F7C56B187F1F620092744E /* BooleanMatcherSpec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3CE2FA9187DEB0100195E3C /* BooleanMatcherSpec.cpp */; };
@@ -66,6 +67,7 @@
 		A3A07C561882A0AE002C0633 /* Getting-Started.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Getting-Started.md"; sourceTree = "<group>"; };
 		A3A07C571882A0AE002C0633 /* Home.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Home.md; sourceTree = "<group>"; };
 		A3A07C581882A0AE002C0633 /* Miscellaneous.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = Miscellaneous.md; sourceTree = "<group>"; };
+		A3A5EB4A18B0F85E00056560 /* NilMatcherSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NilMatcherSpec.cpp; sourceTree = "<group>"; };
 		A3A8E7BC1885A94D0077914B /* MathExpressionsSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathExpressionsSpec.cpp; sourceTree = "<group>"; };
 		A3A8E7BF1885AA920077914B /* MathParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathParser.h; sourceTree = "<group>"; };
 		A3A8E7D01885D0530077914B /* RomanNumeralsSpec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RomanNumeralsSpec.cpp; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				A3A07C4818818D1D002C0633 /* ContainerMatcherSpec.cpp */,
 				A3A050E3188085BB00E7A4EE /* ComparisonMatcherSpec.cpp */,
 				A3A07C4E1881BFBC002C0633 /* StringMatcherSpec.cpp */,
+				A3A5EB4A18B0F85E00056560 /* NilMatcherSpec.cpp */,
 			);
 			path = specs;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				A3A8E7BE1885A94D0077914B /* MathExpressionsSpec.cpp in Sources */,
 				A3A8E7D11885D0530077914B /* RomanNumeralsSpec.cpp in Sources */,
 				A3F7C579187F300B0092744E /* main.cpp in Sources */,
+				A3A5EB4B18B0F85E00056560 /* NilMatcherSpec.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
