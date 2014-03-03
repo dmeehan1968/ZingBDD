@@ -46,7 +46,7 @@ namespace ZingBDD {
 			
 		}
 		
-		uint run(Reporter &reporter) {
+		unsigned int run(Reporter &reporter) {
 			
 			for ( auto example : _examples ) {
 				
