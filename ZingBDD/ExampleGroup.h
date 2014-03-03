@@ -94,7 +94,7 @@ namespace ZingBDD {
                 }
             }
             
-			for ( auto before : _beforeEach ) {
+			for ( auto &before : _beforeEach ) {
 				
 				before();
 				
@@ -103,7 +103,7 @@ namespace ZingBDD {
 		
 		void doAfterEach() {
 			
-			for ( auto after : _afterEach ) {
+			for ( auto &after : _afterEach ) {
 				
 				after();
 				
