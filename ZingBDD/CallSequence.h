@@ -72,6 +72,11 @@ namespace ZingBDD {
                 throw std::runtime_error(os.str());
             }
         }
+
+        size_t size() const {
+            return container_type::size();
+        }
+        
     };
     
 }
